@@ -1,0 +1,80 @@
+﻿@model CoHoiCuoiCung.Models.CUON_SACH
+
+@{
+    ViewBag.Title = "Chi tiết";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi tiết cuốn sách</h2>
+
+<div>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên đầu sách
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DAU_SACH.TEN_DAU_SACH)
+        </dd>
+
+        <dt>
+            Tên sách
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_SACH)
+        </dd>
+
+        <dt>
+            Năm xuất bản
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAM_XUAT_BAN)
+        </dd>
+
+        <dt>
+            Mã vạch
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MA_VACH)
+        </dd>
+        <dt>
+            Giá sách
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIA_SACH)
+        </dd>
+
+        <dt>
+            Tải bản
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TAI_BAN)
+        </dd>
+
+        <dt>
+            Số trang
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SO_TRANG)
+        </dd>
+
+        <dt>
+            Ghi chú
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GHI_CHU_SACH)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.MA_SACH }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>

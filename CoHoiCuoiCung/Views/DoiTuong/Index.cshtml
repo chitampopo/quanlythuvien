@@ -1,0 +1,32 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.DOI_TUONG>
+
+@{
+    ViewBag.Title = "Đối tượng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Đối tượng</h2>
+
+<p>
+    @Html.ActionLink("Thêm đối tượng độc giả", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên đối tượng
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEN_DOI_TUONG)
+        </td>
+        <td>
+            @Html.ActionLink("Cập nhật", "Edit", new { id=item.MA_DOI_TUONG })
+        </td>
+    </tr>
+}
+
+</table>

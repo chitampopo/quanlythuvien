@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Mượn Sách";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Thông tin độc giả</h2>
+<table class="table">
+    <tr>
+        <td><label>Tên độc giả:</label></td>
+        <td>@ViewData["tenDocGia"]</td>
+        <td><label>Số điện thoại:</label></td>
+        <td>@ViewData["sdt"]</td>
+        <td rowspan="4"><label>Địa chỉ:</label></td>
+        <td rowspan="4">@ViewData["diaChi"]</td>
+    </tr>
+    <tr>
+        <td><label>Ngày tham gia:</label></td>
+        <td>@ViewData["ngayThamGia"]</td>
+        <td><label>Ngày hết hạn:</label></td>
+        <td>@ViewData["ngayHetHan"]</td>
+    </tr>
+    <tr>
+        <td><label>Số ngày còn lại:</label></td>
+        <td>@ViewData["ngayConLai"]</td>
+        <td><label>Lưu ý:</label></td>
+        <td><span style="color: red">@ViewData["thongBao1"]</span></td>
+    </tr>
+    <tr>
+        <td><label>Số sách đã mượn:</label></td>
+        <td>@ViewData["soSachMuon"]</td>
+        <td><label>Lưu ý:</label></td>
+        <td><span style="color: red"> @ViewData["thongBao2"] </span></td>
+    </tr>
+</table>
+<form action="/MuonTraSach/MuonSach" method="post">
+    <input type="hidden" name="maDocGia" value="@ViewBag.maDocGia" />
+    @ViewBag.temp
+    <div class="box">
+        <div class="box-header">
+        <input type="submit" value="Lưu thông tin" class="btn btn-default" />
+        </div><!-- /.box-header -->
+        <div class="box-body">
+            <table id="example1" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Tên sách</th>
+                        <th>Số trang</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @Html.Action("LietKeSach", "Sach")
+                </tbody>
+            </table>
+        </div><!-- /.box-body -->
+    </div><!-- /.box -->
+</form>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.TAI_KHOAN>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Tạo mới tài khoản")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TEN_TAI_KHOAN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MAT_KHAU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOC_GIA.TEN_DOC_GIA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NHAN_VIEN.TEN_NHAN_VIEN)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEN_TAI_KHOAN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MAT_KHAU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOC_GIA.TEN_DOC_GIA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NHAN_VIEN.TEN_NHAN_VIEN)
+        </td>
+        <td>
+            @Html.ActionLink("Cập nhật", "Edit", new { id=item.MA_TAI_KHOAN }) |
+            @Html.ActionLink("Xem chi tiết", "Details", new { id=item.MA_TAI_KHOAN }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MA_TAI_KHOAN })
+        </td>
+    </tr>
+}
+
+</table>

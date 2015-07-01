@@ -1,0 +1,62 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.NHAN_VIEN>
+
+@{
+    ViewBag.Title = "Quản lý nhân viên";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách nhân viên</h2>
+
+<p>
+    @Html.ActionLink("Thêm nhân viên", "Create")
+    <br />
+    @Html.ActionLink("Thông tin giữ chức vụ", "Index", "GiuChucVu")
+    <br />
+    @Html.ActionLink("Thông tin cấp quyền sử dụng", "Index", "QuyenSuDung")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Tên nhân viên")
+        </th>
+        <th>
+            Giới tính
+        </th>
+        <th class="col-lg-3">
+            @Html.DisplayName("Địa chỉ nhân viên")
+        </th>
+        <th>
+            @Html.DisplayName("Số điện thoại nhân viên")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEN_NHAN_VIEN)
+        </td>
+        <td>
+            @if (item.GIOI_TINH_NHAN_VIEN == true)
+            {
+                @Html.Raw("Nam")
+            }
+            else
+            {
+                @Html.Raw("Nữ")
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIA_CHI_NHAN_VIEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT_NHAN_VIEN)
+        </td>
+        <td>
+            @Html.ActionLink("Cập nhật", "Edit", new { id=item.MA_NHAN_VIEN }) |
+            @Html.ActionLink("Xem chi tiết", "Details", new { id=item.MA_NHAN_VIEN })
+        </td>
+    </tr>
+}
+
+</table>

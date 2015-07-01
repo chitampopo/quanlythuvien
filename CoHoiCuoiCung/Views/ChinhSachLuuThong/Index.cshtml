@@ -1,0 +1,50 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.CHINH_SACH_LUU_THONG>
+
+@{
+    ViewBag.Title = "Chính sách lưu thông";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chính sách lưu thông</h2>
+
+<p>
+    @Html.ActionLink("Thêm chính sách lưu thông", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Sô sách mượn tối đa")
+        </th>
+        <th>
+            @Html.DisplayName("Số ngày mượn")
+        </th>
+        <th>
+            @Html.DisplayName("Số lần được gia hạn")
+        </th>
+        <th>
+            @Html.DisplayName("Số ngày gia hạn")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SO_SACH_MUON_TOI_DA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SO_NGAY_MUON)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SO_LAN_DUOC_GIA_HAN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SO_NGAY_GIA_HAN)
+        </td>
+        <td>
+            @Html.ActionLink("Cập nhật", "Edit", new { id=item.MA_CHINH_SACH })
+        </td>
+    </tr>
+}
+
+</table>

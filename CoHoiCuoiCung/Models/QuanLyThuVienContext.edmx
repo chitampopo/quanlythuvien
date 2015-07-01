@@ -1,0 +1,1613 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QuanLyThuVienModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CHINH_SACH_LUU_THONG">
+          <Key>
+            <PropertyRef Name="MA_CHINH_SACH" />
+          </Key>
+          <Property Name="MA_CHINH_SACH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SO_SACH_MUON_TOI_DA" Type="int" />
+          <Property Name="SO_NGAY_MUON" Type="int" />
+          <Property Name="SO_LAN_DUOC_GIA_HAN" Type="int" />
+          <Property Name="SO_NGAY_GIA_HAN" Type="int" />
+        </EntityType>
+        <EntityType Name="CHUC_VU">
+          <Key>
+            <PropertyRef Name="MA_CHUC_VU" />
+          </Key>
+          <Property Name="MA_CHUC_VU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEN_CHUC_VU" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CUNG_CAP_SACH">
+          <Key>
+            <PropertyRef Name="MA_NCC" />
+            <PropertyRef Name="MA_SACH" />
+          </Key>
+          <Property Name="MA_NCC" Type="int" Nullable="false" />
+          <Property Name="MA_SACH" Type="int" Nullable="false" />
+          <Property Name="THOI_GIAN" Type="datetime" />
+          <Property Name="SOLUONG" Type="int" />
+        </EntityType>
+        <EntityType Name="CUON_SACH">
+          <Key>
+            <PropertyRef Name="MA_SACH" />
+          </Key>
+          <Property Name="MA_SACH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MA_DAU_SACH" Type="int" Nullable="false" />
+          <Property Name="GIA_SACH" Type="int" />
+          <Property Name="TEN_SACH" Type="nvarchar" MaxLength="100" />
+          <Property Name="SO_TRANG" Type="int" />
+          <Property Name="GHI_CHU_SACH" Type="nvarchar" MaxLength="50" />
+          <Property Name="SO_LUONG" Type="int" />
+          <Property Name="NAM_XUAT_BAN" Type="int" />
+          <Property Name="MA_VACH" Type="nvarchar" MaxLength="50" />
+          <Property Name="TAI_BAN" Type="int" />
+        </EntityType>
+        <EntityType Name="DAU_SACH">
+          <Key>
+            <PropertyRef Name="MA_DAU_SACH" />
+          </Key>
+          <Property Name="MA_DAU_SACH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MA_NGON_NGU" Type="int" Nullable="false" />
+          <Property Name="MA_NXB" Type="int" Nullable="false" />
+          <Property Name="MA_LOAI_SACH" Type="int" Nullable="false" />
+          <Property Name="TEN_DAU_SACH" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DAU_SACH_CUA_TAC_GIA">
+          <Key>
+            <PropertyRef Name="MA_TAC_GIA" />
+            <PropertyRef Name="MA_DAU_SACH" />
+          </Key>
+          <Property Name="MA_TAC_GIA" Type="int" Nullable="false" />
+          <Property Name="MA_DAU_SACH" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DOC_GIA">
+          <Key>
+            <PropertyRef Name="MA_DOC_GIA" />
+          </Key>
+          <Property Name="MA_DOC_GIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MA_DOI_TUONG" Type="int" Nullable="false" />
+          <Property Name="TEN_DOC_GIA" Type="nvarchar" MaxLength="50" />
+          <Property Name="SDT_DOC_GIA" Type="nvarchar" MaxLength="11" />
+          <Property Name="DIA_CHI_DOC_GIA" Type="nvarchar" MaxLength="100" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
+          <Property Name="NGAY_THAM_GIA" Type="datetime" />
+          <Property Name="NGAY_HET_HAN" Type="datetime" />
+          <Property Name="GIOI_TINH_DOC_GIA" Type="bit" />
+          <Property Name="CMND" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DOI_TUONG">
+          <Key>
+            <PropertyRef Name="MA_DOI_TUONG" />
+          </Key>
+          <Property Name="MA_DOI_TUONG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEN_DOI_TUONG" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="GIU_CHUC_VU">
+          <Key>
+            <PropertyRef Name="MA_NHAN_VIEN" />
+            <PropertyRef Name="MA_CHUC_VU" />
+          </Key>
+          <Property Name="MA_NHAN_VIEN" Type="int" Nullable="false" />
+          <Property Name="MA_CHUC_VU" Type="int" Nullable="false" />
+          <Property Name="NGAY_BAT_DAU" Type="datetime" />
+          <Property Name="NGAY_KET_THUC" Type="datetime" />
+        </EntityType>
+        <EntityType Name="KE_SACH">
+          <Key>
+            <PropertyRef Name="MA_KE_SACH" />
+          </Key>
+          <Property Name="MA_KE_SACH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MA_KHU_VUC" Type="int" Nullable="false" />
+          <Property Name="TEN_KE_SACH" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="KE_SACH_CO_DAU_SACH">
+          <Key>
+            <PropertyRef Name="MA_KE_SACH" />
+            <PropertyRef Name="MA_DAU_SACH" />
+          </Key>
+          <Property Name="MA_KE_SACH" Type="int" Nullable="false" />
+          <Property Name="MA_DAU_SACH" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KHU_VUC">
+          <Key>
+            <PropertyRef Name="MA_KHU_VUC" />
+          </Key>
+          <Property Name="MA_KHU_VUC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEN_KHU_VUC" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LOAI_SACH">
+          <Key>
+            <PropertyRef Name="MA_LOAI_SACH" />
+          </Key>
+          <Property Name="MA_LOAI_SACH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEN_LOAI_SACH" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="LY_DO_PHAT">
+          <Key>
+            <PropertyRef Name="MA_LY_DO" />
+          </Key>
+          <Property Name="MA_LY_DO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LY_DO_PHAT" Type="nvarchar" MaxLength="100" />
+          <Property Name="SO_TIEN_PHAT" Type="int" />
+          <Property Name="GHI_CHU_PHAT" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MUON_TRA_SACH">
+          <Key>
+            <PropertyRef Name="MA_MUON_TRA" />
+          </Key>
+          <Property Name="MA_MUON_TRA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MA_CHINH_SACH" Type="int" Nullable="false" />
+          <Property Name="MA_DOC_GIA" Type="int" Nullable="false" />
+          <Property Name="MA_NHAN_VIEN" Type="int" Nullable="false" />
+          <Property Name="NGAY_GIO_LAP" Type="datetime" />
+          <Property Name="NGAY_PHAI_TRA" Type="datetime" />
+        </EntityType>
+        <EntityType Name="NGON_NGU">
+          <Key>
+            <PropertyRef Name="MA_NGON_NGU" />
+          </Key>
+          <Property Name="MA_NGON_NGU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEN_NGON_NGU" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NHA_CUNG_CAP">
+          <Key>
+            <PropertyRef Name="MA_NCC" />
+          </Key>
+          <Property Name="MA_NCC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEN_NCC" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="NHA_XUAT_BAN">
+          <Key>
+            <PropertyRef Name="MA_NXB" />
+          </Key>
+          <Property Name="MA_NXB" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEN_NXB" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NHAN_VIEN">
+          <Key>
+            <PropertyRef Name="MA_NHAN_VIEN" />
+          </Key>
+          <Property Name="MA_NHAN_VIEN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEN_NHAN_VIEN" Type="nvarchar" MaxLength="50" />
+          <Property Name="DIA_CHI_NHAN_VIEN" Type="nvarchar" MaxLength="100" />
+          <Property Name="SDT_NHAN_VIEN" Type="nvarchar" MaxLength="11" />
+          <Property Name="GIOI_TINH_NHAN_VIEN" Type="bit" />
+        </EntityType>
+        <EntityType Name="PHAT">
+          <Key>
+            <PropertyRef Name="MA_MUON_TRA" />
+            <PropertyRef Name="MA_LY_DO" />
+            <PropertyRef Name="MA_SACH" />
+          </Key>
+          <Property Name="MA_MUON_TRA" Type="int" Nullable="false" />
+          <Property Name="MA_LY_DO" Type="int" Nullable="false" />
+          <Property Name="MA_SACH" Type="int" Nullable="false" />
+          <Property Name="SO_TIEN_BI_PHAT" Type="int" />
+        </EntityType>
+        <EntityType Name="QUYEN">
+          <Key>
+            <PropertyRef Name="MA_QUYEN" />
+          </Key>
+          <Property Name="MA_QUYEN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEN_QUYEN" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="QUYEN_SD">
+          <Key>
+            <PropertyRef Name="MA_QUYEN" />
+            <PropertyRef Name="MA_CHUC_VU" />
+          </Key>
+          <Property Name="MA_QUYEN" Type="int" Nullable="false" />
+          <Property Name="MA_CHUC_VU" Type="int" Nullable="false" />
+          <Property Name="MENU" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="SACH_MUON">
+          <Key>
+            <PropertyRef Name="MA_SACH" />
+            <PropertyRef Name="MA_MUON_TRA" />
+          </Key>
+          <Property Name="MA_SACH" Type="int" Nullable="false" />
+          <Property Name="MA_MUON_TRA" Type="int" Nullable="false" />
+          <Property Name="NGAY_PHAI_TRA" Type="datetime" />
+          <Property Name="DA_TRA" Type="bit" />
+          <Property Name="THOI_GIAN_TRA" Type="datetime" />
+          <Property Name="GIA_HAN" Type="int" />
+        </EntityType>
+        <EntityType Name="TAC_GIA">
+          <Key>
+            <PropertyRef Name="MA_TAC_GIA" />
+          </Key>
+          <Property Name="MA_TAC_GIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEN_TAC_GIA" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TAI_KHOAN">
+          <Key>
+            <PropertyRef Name="MA_TAI_KHOAN" />
+          </Key>
+          <Property Name="MA_TAI_KHOAN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MA_NHAN_VIEN" Type="int" />
+          <Property Name="MA_DOC_GIA" Type="int" />
+          <Property Name="TEN_TAI_KHOAN" Type="nvarchar" MaxLength="20" />
+          <Property Name="MAT_KHAU" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_CUNG_CAP_SACH_CUON_SACH">
+          <End Role="CUON_SACH" Type="Self.CUON_SACH" Multiplicity="1" />
+          <End Role="CUNG_CAP_SACH" Type="Self.CUNG_CAP_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUON_SACH">
+              <PropertyRef Name="MA_SACH" />
+            </Principal>
+            <Dependent Role="CUNG_CAP_SACH">
+              <PropertyRef Name="MA_SACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUNG_CAP_SACH_NHA_CUNG_CAP">
+          <End Role="NHA_CUNG_CAP" Type="Self.NHA_CUNG_CAP" Multiplicity="1" />
+          <End Role="CUNG_CAP_SACH" Type="Self.CUNG_CAP_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHA_CUNG_CAP">
+              <PropertyRef Name="MA_NCC" />
+            </Principal>
+            <Dependent Role="CUNG_CAP_SACH">
+              <PropertyRef Name="MA_NCC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUON_SAC_DAU_SACH__DAU_SACH">
+          <End Role="DAU_SACH" Type="Self.DAU_SACH" Multiplicity="1" />
+          <End Role="CUON_SACH" Type="Self.CUON_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAU_SACH">
+              <PropertyRef Name="MA_DAU_SACH" />
+            </Principal>
+            <Dependent Role="CUON_SACH">
+              <PropertyRef Name="MA_DAU_SACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAU_SACH_CO_NGON_N_NGON_NGU">
+          <End Role="NGON_NGU" Type="Self.NGON_NGU" Multiplicity="1" />
+          <End Role="DAU_SACH" Type="Self.DAU_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGON_NGU">
+              <PropertyRef Name="MA_NGON_NGU" />
+            </Principal>
+            <Dependent Role="DAU_SACH">
+              <PropertyRef Name="MA_NGON_NGU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAU_SACH_DAU_SACH__DAU_SACH">
+          <End Role="DAU_SACH" Type="Self.DAU_SACH" Multiplicity="1" />
+          <End Role="DAU_SACH_CUA_TAC_GIA" Type="Self.DAU_SACH_CUA_TAC_GIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAU_SACH">
+              <PropertyRef Name="MA_DAU_SACH" />
+            </Principal>
+            <Dependent Role="DAU_SACH_CUA_TAC_GIA">
+              <PropertyRef Name="MA_DAU_SACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAU_SACH_DAU_SACH__NHA_XUAT">
+          <End Role="NHA_XUAT_BAN" Type="Self.NHA_XUAT_BAN" Multiplicity="1" />
+          <End Role="DAU_SACH" Type="Self.DAU_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHA_XUAT_BAN">
+              <PropertyRef Name="MA_NXB" />
+            </Principal>
+            <Dependent Role="DAU_SACH">
+              <PropertyRef Name="MA_NXB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAU_SACH_DAU_SACH__TAC_GIA">
+          <End Role="TAC_GIA" Type="Self.TAC_GIA" Multiplicity="1" />
+          <End Role="DAU_SACH_CUA_TAC_GIA" Type="Self.DAU_SACH_CUA_TAC_GIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAC_GIA">
+              <PropertyRef Name="MA_TAC_GIA" />
+            </Principal>
+            <Dependent Role="DAU_SACH_CUA_TAC_GIA">
+              <PropertyRef Name="MA_TAC_GIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAU_SACH_LOAI_SACH_LOAI_SAC">
+          <End Role="LOAI_SACH" Type="Self.LOAI_SACH" Multiplicity="1" />
+          <End Role="DAU_SACH" Type="Self.DAU_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAI_SACH">
+              <PropertyRef Name="MA_LOAI_SACH" />
+            </Principal>
+            <Dependent Role="DAU_SACH">
+              <PropertyRef Name="MA_LOAI_SACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOC_GIA_DOC_GIA_T_DOI_TUON">
+          <End Role="DOI_TUONG" Type="Self.DOI_TUONG" Multiplicity="1" />
+          <End Role="DOC_GIA" Type="Self.DOC_GIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOI_TUONG">
+              <PropertyRef Name="MA_DOI_TUONG" />
+            </Principal>
+            <Dependent Role="DOC_GIA">
+              <PropertyRef Name="MA_DOI_TUONG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GIU_CHUC_GIU_CHUC__CHUC_VU">
+          <End Role="CHUC_VU" Type="Self.CHUC_VU" Multiplicity="1" />
+          <End Role="GIU_CHUC_VU" Type="Self.GIU_CHUC_VU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUC_VU">
+              <PropertyRef Name="MA_CHUC_VU" />
+            </Principal>
+            <Dependent Role="GIU_CHUC_VU">
+              <PropertyRef Name="MA_CHUC_VU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GIU_CHUC_NHAN_VIEN_NHAN_VIE">
+          <End Role="NHAN_VIEN" Type="Self.NHAN_VIEN" Multiplicity="1" />
+          <End Role="GIU_CHUC_VU" Type="Self.GIU_CHUC_VU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHAN_VIEN">
+              <PropertyRef Name="MA_NHAN_VIEN" />
+            </Principal>
+            <Dependent Role="GIU_CHUC_VU">
+              <PropertyRef Name="MA_NHAN_VIEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KE_SACH__KE_SACH_C_DAU_SACH">
+          <End Role="DAU_SACH" Type="Self.DAU_SACH" Multiplicity="1" />
+          <End Role="KE_SACH_CO_DAU_SACH" Type="Self.KE_SACH_CO_DAU_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAU_SACH">
+              <PropertyRef Name="MA_DAU_SACH" />
+            </Principal>
+            <Dependent Role="KE_SACH_CO_DAU_SACH">
+              <PropertyRef Name="MA_DAU_SACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KE_SACH__KE_SACH_C_KE_SACH">
+          <End Role="KE_SACH" Type="Self.KE_SACH" Multiplicity="1" />
+          <End Role="KE_SACH_CO_DAU_SACH" Type="Self.KE_SACH_CO_DAU_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KE_SACH">
+              <PropertyRef Name="MA_KE_SACH" />
+            </Principal>
+            <Dependent Role="KE_SACH_CO_DAU_SACH">
+              <PropertyRef Name="MA_KE_SACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KE_SACH_KHU_VUC_C_KHU_VUC">
+          <End Role="KHU_VUC" Type="Self.KHU_VUC" Multiplicity="1" />
+          <End Role="KE_SACH" Type="Self.KE_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHU_VUC">
+              <PropertyRef Name="MA_KHU_VUC" />
+            </Principal>
+            <Dependent Role="KE_SACH">
+              <PropertyRef Name="MA_KHU_VUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MUON_TRA_CO_CHINH__CHINH_SA">
+          <End Role="CHINH_SACH_LUU_THONG" Type="Self.CHINH_SACH_LUU_THONG" Multiplicity="1" />
+          <End Role="MUON_TRA_SACH" Type="Self.MUON_TRA_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHINH_SACH_LUU_THONG">
+              <PropertyRef Name="MA_CHINH_SACH" />
+            </Principal>
+            <Dependent Role="MUON_TRA_SACH">
+              <PropertyRef Name="MA_CHINH_SACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MUON_TRA_DOC_GIA_M_DOC_GIA">
+          <End Role="DOC_GIA" Type="Self.DOC_GIA" Multiplicity="1" />
+          <End Role="MUON_TRA_SACH" Type="Self.MUON_TRA_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOC_GIA">
+              <PropertyRef Name="MA_DOC_GIA" />
+            </Principal>
+            <Dependent Role="MUON_TRA_SACH">
+              <PropertyRef Name="MA_DOC_GIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MUON_TRA_NGUOI_LAP_NHAN_VIE">
+          <End Role="NHAN_VIEN" Type="Self.NHAN_VIEN" Multiplicity="1" />
+          <End Role="MUON_TRA_SACH" Type="Self.MUON_TRA_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHAN_VIEN">
+              <PropertyRef Name="MA_NHAN_VIEN" />
+            </Principal>
+            <Dependent Role="MUON_TRA_SACH">
+              <PropertyRef Name="MA_NHAN_VIEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHAT_BI_PHAT_MUON_TRA">
+          <End Role="MUON_TRA_SACH" Type="Self.MUON_TRA_SACH" Multiplicity="1" />
+          <End Role="PHAT" Type="Self.PHAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUON_TRA_SACH">
+              <PropertyRef Name="MA_MUON_TRA" />
+            </Principal>
+            <Dependent Role="PHAT">
+              <PropertyRef Name="MA_MUON_TRA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHAT_PHAT_VOI__LY_DO_PH">
+          <End Role="LY_DO_PHAT" Type="Self.LY_DO_PHAT" Multiplicity="1" />
+          <End Role="PHAT" Type="Self.PHAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LY_DO_PHAT">
+              <PropertyRef Name="MA_LY_DO" />
+            </Principal>
+            <Dependent Role="PHAT">
+              <PropertyRef Name="MA_LY_DO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHAT_SACH_PHAT_CUON_SAC">
+          <End Role="CUON_SACH" Type="Self.CUON_SACH" Multiplicity="1" />
+          <End Role="PHAT" Type="Self.PHAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUON_SACH">
+              <PropertyRef Name="MA_SACH" />
+            </Principal>
+            <Dependent Role="PHAT">
+              <PropertyRef Name="MA_SACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QUYEN_SD_CHUC_VU">
+          <End Role="CHUC_VU" Type="Self.CHUC_VU" Multiplicity="1" />
+          <End Role="QUYEN_SD" Type="Self.QUYEN_SD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUC_VU">
+              <PropertyRef Name="MA_CHUC_VU" />
+            </Principal>
+            <Dependent Role="QUYEN_SD">
+              <PropertyRef Name="MA_CHUC_VU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QUYEN_SD_QUYEN">
+          <End Role="QUYEN" Type="Self.QUYEN" Multiplicity="1" />
+          <End Role="QUYEN_SD" Type="Self.QUYEN_SD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUYEN">
+              <PropertyRef Name="MA_QUYEN" />
+            </Principal>
+            <Dependent Role="QUYEN_SD">
+              <PropertyRef Name="MA_QUYEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SACH_MUO_MUON_NHUN_MUON_TRA">
+          <End Role="MUON_TRA_SACH" Type="Self.MUON_TRA_SACH" Multiplicity="1" />
+          <End Role="SACH_MUON" Type="Self.SACH_MUON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUON_TRA_SACH">
+              <PropertyRef Name="MA_MUON_TRA" />
+            </Principal>
+            <Dependent Role="SACH_MUON">
+              <PropertyRef Name="MA_MUON_TRA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SACH_MUO_SACH_DUOC_CUON_SAC">
+          <End Role="CUON_SACH" Type="Self.CUON_SACH" Multiplicity="1" />
+          <End Role="SACH_MUON" Type="Self.SACH_MUON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUON_SACH">
+              <PropertyRef Name="MA_SACH" />
+            </Principal>
+            <Dependent Role="SACH_MUON">
+              <PropertyRef Name="MA_SACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TAI_KHOA_CO_TAI_KH_DOC_GIA">
+          <End Role="DOC_GIA" Type="Self.DOC_GIA" Multiplicity="0..1" />
+          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOC_GIA">
+              <PropertyRef Name="MA_DOC_GIA" />
+            </Principal>
+            <Dependent Role="TAI_KHOAN">
+              <PropertyRef Name="MA_DOC_GIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TAI_KHOA_NHAN_VIEN_NHAN_VIE">
+          <End Role="NHAN_VIEN" Type="Self.NHAN_VIEN" Multiplicity="0..1" />
+          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHAN_VIEN">
+              <PropertyRef Name="MA_NHAN_VIEN" />
+            </Principal>
+            <Dependent Role="TAI_KHOAN">
+              <PropertyRef Name="MA_NHAN_VIEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QuanLyThuVienModelStoreContainer">
+          <EntitySet Name="CHINH_SACH_LUU_THONG" EntityType="Self.CHINH_SACH_LUU_THONG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CHUC_VU" EntityType="Self.CHUC_VU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUNG_CAP_SACH" EntityType="Self.CUNG_CAP_SACH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUON_SACH" EntityType="Self.CUON_SACH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DAU_SACH" EntityType="Self.DAU_SACH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DAU_SACH_CUA_TAC_GIA" EntityType="Self.DAU_SACH_CUA_TAC_GIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DOC_GIA" EntityType="Self.DOC_GIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DOI_TUONG" EntityType="Self.DOI_TUONG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GIU_CHUC_VU" EntityType="Self.GIU_CHUC_VU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KE_SACH" EntityType="Self.KE_SACH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KE_SACH_CO_DAU_SACH" EntityType="Self.KE_SACH_CO_DAU_SACH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHU_VUC" EntityType="Self.KHU_VUC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOAI_SACH" EntityType="Self.LOAI_SACH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LY_DO_PHAT" EntityType="Self.LY_DO_PHAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MUON_TRA_SACH" EntityType="Self.MUON_TRA_SACH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NGON_NGU" EntityType="Self.NGON_NGU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NHA_CUNG_CAP" EntityType="Self.NHA_CUNG_CAP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NHA_XUAT_BAN" EntityType="Self.NHA_XUAT_BAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NHAN_VIEN" EntityType="Self.NHAN_VIEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHAT" EntityType="Self.PHAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QUYEN" EntityType="Self.QUYEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QUYEN_SD" EntityType="Self.QUYEN_SD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SACH_MUON" EntityType="Self.SACH_MUON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TAC_GIA" EntityType="Self.TAC_GIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TAI_KHOAN" EntityType="Self.TAI_KHOAN" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CUNG_CAP_SACH_CUON_SACH" Association="Self.FK_CUNG_CAP_SACH_CUON_SACH">
+            <End Role="CUON_SACH" EntitySet="CUON_SACH" />
+            <End Role="CUNG_CAP_SACH" EntitySet="CUNG_CAP_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUNG_CAP_SACH_NHA_CUNG_CAP" Association="Self.FK_CUNG_CAP_SACH_NHA_CUNG_CAP">
+            <End Role="NHA_CUNG_CAP" EntitySet="NHA_CUNG_CAP" />
+            <End Role="CUNG_CAP_SACH" EntitySet="CUNG_CAP_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUON_SAC_DAU_SACH__DAU_SACH" Association="Self.FK_CUON_SAC_DAU_SACH__DAU_SACH">
+            <End Role="DAU_SACH" EntitySet="DAU_SACH" />
+            <End Role="CUON_SACH" EntitySet="CUON_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAU_SACH_CO_NGON_N_NGON_NGU" Association="Self.FK_DAU_SACH_CO_NGON_N_NGON_NGU">
+            <End Role="NGON_NGU" EntitySet="NGON_NGU" />
+            <End Role="DAU_SACH" EntitySet="DAU_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAU_SACH_DAU_SACH__DAU_SACH" Association="Self.FK_DAU_SACH_DAU_SACH__DAU_SACH">
+            <End Role="DAU_SACH" EntitySet="DAU_SACH" />
+            <End Role="DAU_SACH_CUA_TAC_GIA" EntitySet="DAU_SACH_CUA_TAC_GIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAU_SACH_DAU_SACH__NHA_XUAT" Association="Self.FK_DAU_SACH_DAU_SACH__NHA_XUAT">
+            <End Role="NHA_XUAT_BAN" EntitySet="NHA_XUAT_BAN" />
+            <End Role="DAU_SACH" EntitySet="DAU_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAU_SACH_DAU_SACH__TAC_GIA" Association="Self.FK_DAU_SACH_DAU_SACH__TAC_GIA">
+            <End Role="TAC_GIA" EntitySet="TAC_GIA" />
+            <End Role="DAU_SACH_CUA_TAC_GIA" EntitySet="DAU_SACH_CUA_TAC_GIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAU_SACH_LOAI_SACH_LOAI_SAC" Association="Self.FK_DAU_SACH_LOAI_SACH_LOAI_SAC">
+            <End Role="LOAI_SACH" EntitySet="LOAI_SACH" />
+            <End Role="DAU_SACH" EntitySet="DAU_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOC_GIA_DOC_GIA_T_DOI_TUON" Association="Self.FK_DOC_GIA_DOC_GIA_T_DOI_TUON">
+            <End Role="DOI_TUONG" EntitySet="DOI_TUONG" />
+            <End Role="DOC_GIA" EntitySet="DOC_GIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GIU_CHUC_GIU_CHUC__CHUC_VU" Association="Self.FK_GIU_CHUC_GIU_CHUC__CHUC_VU">
+            <End Role="CHUC_VU" EntitySet="CHUC_VU" />
+            <End Role="GIU_CHUC_VU" EntitySet="GIU_CHUC_VU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GIU_CHUC_NHAN_VIEN_NHAN_VIE" Association="Self.FK_GIU_CHUC_NHAN_VIEN_NHAN_VIE">
+            <End Role="NHAN_VIEN" EntitySet="NHAN_VIEN" />
+            <End Role="GIU_CHUC_VU" EntitySet="GIU_CHUC_VU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KE_SACH__KE_SACH_C_DAU_SACH" Association="Self.FK_KE_SACH__KE_SACH_C_DAU_SACH">
+            <End Role="DAU_SACH" EntitySet="DAU_SACH" />
+            <End Role="KE_SACH_CO_DAU_SACH" EntitySet="KE_SACH_CO_DAU_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KE_SACH__KE_SACH_C_KE_SACH" Association="Self.FK_KE_SACH__KE_SACH_C_KE_SACH">
+            <End Role="KE_SACH" EntitySet="KE_SACH" />
+            <End Role="KE_SACH_CO_DAU_SACH" EntitySet="KE_SACH_CO_DAU_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KE_SACH_KHU_VUC_C_KHU_VUC" Association="Self.FK_KE_SACH_KHU_VUC_C_KHU_VUC">
+            <End Role="KHU_VUC" EntitySet="KHU_VUC" />
+            <End Role="KE_SACH" EntitySet="KE_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MUON_TRA_CO_CHINH__CHINH_SA" Association="Self.FK_MUON_TRA_CO_CHINH__CHINH_SA">
+            <End Role="CHINH_SACH_LUU_THONG" EntitySet="CHINH_SACH_LUU_THONG" />
+            <End Role="MUON_TRA_SACH" EntitySet="MUON_TRA_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MUON_TRA_DOC_GIA_M_DOC_GIA" Association="Self.FK_MUON_TRA_DOC_GIA_M_DOC_GIA">
+            <End Role="DOC_GIA" EntitySet="DOC_GIA" />
+            <End Role="MUON_TRA_SACH" EntitySet="MUON_TRA_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MUON_TRA_NGUOI_LAP_NHAN_VIE" Association="Self.FK_MUON_TRA_NGUOI_LAP_NHAN_VIE">
+            <End Role="NHAN_VIEN" EntitySet="NHAN_VIEN" />
+            <End Role="MUON_TRA_SACH" EntitySet="MUON_TRA_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHAT_BI_PHAT_MUON_TRA" Association="Self.FK_PHAT_BI_PHAT_MUON_TRA">
+            <End Role="MUON_TRA_SACH" EntitySet="MUON_TRA_SACH" />
+            <End Role="PHAT" EntitySet="PHAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHAT_PHAT_VOI__LY_DO_PH" Association="Self.FK_PHAT_PHAT_VOI__LY_DO_PH">
+            <End Role="LY_DO_PHAT" EntitySet="LY_DO_PHAT" />
+            <End Role="PHAT" EntitySet="PHAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHAT_SACH_PHAT_CUON_SAC" Association="Self.FK_PHAT_SACH_PHAT_CUON_SAC">
+            <End Role="CUON_SACH" EntitySet="CUON_SACH" />
+            <End Role="PHAT" EntitySet="PHAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QUYEN_SD_CHUC_VU" Association="Self.FK_QUYEN_SD_CHUC_VU">
+            <End Role="CHUC_VU" EntitySet="CHUC_VU" />
+            <End Role="QUYEN_SD" EntitySet="QUYEN_SD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QUYEN_SD_QUYEN" Association="Self.FK_QUYEN_SD_QUYEN">
+            <End Role="QUYEN" EntitySet="QUYEN" />
+            <End Role="QUYEN_SD" EntitySet="QUYEN_SD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SACH_MUO_MUON_NHUN_MUON_TRA" Association="Self.FK_SACH_MUO_MUON_NHUN_MUON_TRA">
+            <End Role="MUON_TRA_SACH" EntitySet="MUON_TRA_SACH" />
+            <End Role="SACH_MUON" EntitySet="SACH_MUON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SACH_MUO_SACH_DUOC_CUON_SAC" Association="Self.FK_SACH_MUO_SACH_DUOC_CUON_SAC">
+            <End Role="CUON_SACH" EntitySet="CUON_SACH" />
+            <End Role="SACH_MUON" EntitySet="SACH_MUON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TAI_KHOA_CO_TAI_KH_DOC_GIA" Association="Self.FK_TAI_KHOA_CO_TAI_KH_DOC_GIA">
+            <End Role="DOC_GIA" EntitySet="DOC_GIA" />
+            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TAI_KHOA_NHAN_VIEN_NHAN_VIE" Association="Self.FK_TAI_KHOA_NHAN_VIEN_NHAN_VIE">
+            <End Role="NHAN_VIEN" EntitySet="NHAN_VIEN" />
+            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QuanLyThuVienModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CHINH_SACH_LUU_THONG">
+          <Key>
+            <PropertyRef Name="MA_CHINH_SACH" />
+          </Key>
+          <Property Name="MA_CHINH_SACH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SO_SACH_MUON_TOI_DA" Type="Int32" />
+          <Property Name="SO_NGAY_MUON" Type="Int32" />
+          <Property Name="SO_LAN_DUOC_GIA_HAN" Type="Int32" />
+          <Property Name="SO_NGAY_GIA_HAN" Type="Int32" />
+          <NavigationProperty Name="MUON_TRA_SACH" Relationship="Self.FK_MUON_TRA_CO_CHINH__CHINH_SA" FromRole="CHINH_SACH_LUU_THONG" ToRole="MUON_TRA_SACH" />
+        </EntityType>
+        <EntityType Name="CHUC_VU">
+          <Key>
+            <PropertyRef Name="MA_CHUC_VU" />
+          </Key>
+          <Property Name="MA_CHUC_VU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN_CHUC_VU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="GIU_CHUC_VU" Relationship="Self.FK_GIU_CHUC_GIU_CHUC__CHUC_VU" FromRole="CHUC_VU" ToRole="GIU_CHUC_VU" />
+          <NavigationProperty Name="QUYEN_SD" Relationship="QuanLyThuVienModel.FK_QUYEN_SD_CHUC_VU" FromRole="CHUC_VU" ToRole="QUYEN_SD" />
+        </EntityType>
+        <EntityType Name="CUON_SACH">
+          <Key>
+            <PropertyRef Name="MA_SACH" />
+          </Key>
+          <Property Name="MA_SACH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MA_DAU_SACH" Type="Int32" Nullable="false" />
+          <Property Name="GIA_SACH" Type="Int32" />
+          <Property Name="TEN_SACH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SO_TRANG" Type="Int32" />
+          <Property Name="GHI_CHU_SACH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DAU_SACH" Relationship="Self.FK_CUON_SAC_DAU_SACH__DAU_SACH" FromRole="CUON_SACH" ToRole="DAU_SACH" />
+          <NavigationProperty Name="PHATs" Relationship="Self.FK_PHAT_SACH_PHAT_CUON_SAC" FromRole="CUON_SACH" ToRole="PHAT" />
+          <Property Name="SO_LUONG" Type="Int32" />
+          <NavigationProperty Name="SACH_MUON" Relationship="QuanLyThuVienModel.FK_SACH_MUO_SACH_DUOC_CUON_SAC" FromRole="CUON_SACH" ToRole="SACH_MUON" />
+          <NavigationProperty Name="CUNG_CAP_SACH" Relationship="QuanLyThuVienModel.FK_CUNG_CAP_SACH_CUON_SACH" FromRole="CUON_SACH" ToRole="CUNG_CAP_SACH" />
+          <Property Name="NAM_XUAT_BAN" Type="Int32" />
+          <Property Name="MA_VACH" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="TAI_BAN" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DAU_SACH">
+          <Key>
+            <PropertyRef Name="MA_DAU_SACH" />
+          </Key>
+          <Property Name="MA_DAU_SACH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MA_NGON_NGU" Type="Int32" Nullable="false" />
+          <Property Name="MA_NXB" Type="Int32" Nullable="false" />
+          <Property Name="MA_LOAI_SACH" Type="Int32" Nullable="false" />
+          <Property Name="TEN_DAU_SACH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CUON_SACH" Relationship="Self.FK_CUON_SAC_DAU_SACH__DAU_SACH" FromRole="DAU_SACH" ToRole="CUON_SACH" />
+          <NavigationProperty Name="NGON_NGU" Relationship="Self.FK_DAU_SACH_CO_NGON_N_NGON_NGU" FromRole="DAU_SACH" ToRole="NGON_NGU" />
+          <NavigationProperty Name="NHA_XUAT_BAN" Relationship="Self.FK_DAU_SACH_DAU_SACH__NHA_XUAT" FromRole="DAU_SACH" ToRole="NHA_XUAT_BAN" />
+          <NavigationProperty Name="LOAI_SACH" Relationship="Self.FK_DAU_SACH_LOAI_SACH_LOAI_SAC" FromRole="DAU_SACH" ToRole="LOAI_SACH" />
+          <NavigationProperty Name="TAC_GIA" Relationship="Self.DAU_SACH_CUA_TAC_GIA" FromRole="DAU_SACH" ToRole="TAC_GIA" />
+          <NavigationProperty Name="KE_SACH" Relationship="Self.KE_SACH_CO_DAU_SACH" FromRole="DAU_SACH" ToRole="KE_SACH" />
+        </EntityType>
+        <EntityType Name="DOC_GIA">
+          <Key>
+            <PropertyRef Name="MA_DOC_GIA" />
+          </Key>
+          <Property Name="MA_DOC_GIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MA_DOI_TUONG" Type="Int32" Nullable="false" />
+          <Property Name="TEN_DOC_GIA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SDT_DOC_GIA" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="DIA_CHI_DOC_GIA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NGAY_THAM_GIA" Type="DateTime" Precision="3" />
+          <Property Name="NGAY_HET_HAN" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="DOI_TUONG" Relationship="Self.FK_DOC_GIA_DOC_GIA_T_DOI_TUON" FromRole="DOC_GIA" ToRole="DOI_TUONG" />
+          <NavigationProperty Name="MUON_TRA_SACH" Relationship="Self.FK_MUON_TRA_DOC_GIA_M_DOC_GIA" FromRole="DOC_GIA" ToRole="MUON_TRA_SACH" />
+          <NavigationProperty Name="TAI_KHOAN" Relationship="Self.FK_TAI_KHOA_CO_TAI_KH_DOC_GIA" FromRole="DOC_GIA" ToRole="TAI_KHOAN" />
+          <Property Name="GIOI_TINH_DOC_GIA" Type="Boolean" />
+          <Property Name="CMND" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DOI_TUONG">
+          <Key>
+            <PropertyRef Name="MA_DOI_TUONG" />
+          </Key>
+          <Property Name="MA_DOI_TUONG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN_DOI_TUONG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DOC_GIA" Relationship="Self.FK_DOC_GIA_DOC_GIA_T_DOI_TUON" FromRole="DOI_TUONG" ToRole="DOC_GIA" />
+        </EntityType>
+        <EntityType Name="GIU_CHUC_VU">
+          <Key>
+            <PropertyRef Name="MA_NHAN_VIEN" />
+            <PropertyRef Name="MA_CHUC_VU" />
+          </Key>
+          <Property Name="MA_NHAN_VIEN" Type="Int32" Nullable="false" />
+          <Property Name="MA_CHUC_VU" Type="Int32" Nullable="false" />
+          <Property Name="NGAY_BAT_DAU" Type="DateTime" Precision="3" />
+          <Property Name="NGAY_KET_THUC" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CHUC_VU" Relationship="Self.FK_GIU_CHUC_GIU_CHUC__CHUC_VU" FromRole="GIU_CHUC_VU" ToRole="CHUC_VU" />
+          <NavigationProperty Name="NHAN_VIEN" Relationship="Self.FK_GIU_CHUC_NHAN_VIEN_NHAN_VIE" FromRole="GIU_CHUC_VU" ToRole="NHAN_VIEN" />
+        </EntityType>
+        <EntityType Name="KE_SACH">
+          <Key>
+            <PropertyRef Name="MA_KE_SACH" />
+          </Key>
+          <Property Name="MA_KE_SACH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MA_KHU_VUC" Type="Int32" Nullable="false" />
+          <Property Name="TEN_KE_SACH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="KHU_VUC" Relationship="Self.FK_KE_SACH_KHU_VUC_C_KHU_VUC" FromRole="KE_SACH" ToRole="KHU_VUC" />
+          <NavigationProperty Name="DAU_SACH" Relationship="Self.KE_SACH_CO_DAU_SACH" FromRole="KE_SACH" ToRole="DAU_SACH" />
+        </EntityType>
+        <EntityType Name="KHU_VUC">
+          <Key>
+            <PropertyRef Name="MA_KHU_VUC" />
+          </Key>
+          <Property Name="MA_KHU_VUC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN_KHU_VUC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="KE_SACH" Relationship="Self.FK_KE_SACH_KHU_VUC_C_KHU_VUC" FromRole="KHU_VUC" ToRole="KE_SACH" />
+        </EntityType>
+        <EntityType Name="LOAI_SACH">
+          <Key>
+            <PropertyRef Name="MA_LOAI_SACH" />
+          </Key>
+          <Property Name="MA_LOAI_SACH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN_LOAI_SACH" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DAU_SACH" Relationship="Self.FK_DAU_SACH_LOAI_SACH_LOAI_SAC" FromRole="LOAI_SACH" ToRole="DAU_SACH" />
+        </EntityType>
+        <EntityType Name="LY_DO_PHAT">
+          <Key>
+            <PropertyRef Name="MA_LY_DO" />
+          </Key>
+          <Property Name="MA_LY_DO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LY_DO_PHAT1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SO_TIEN_PHAT" Type="Int32" />
+          <NavigationProperty Name="PHATs" Relationship="Self.FK_PHAT_PHAT_VOI__LY_DO_PH" FromRole="LY_DO_PHAT" ToRole="PHAT" />
+          <Property Name="GHI_CHU_PHAT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MUON_TRA_SACH">
+          <Key>
+            <PropertyRef Name="MA_MUON_TRA" />
+          </Key>
+          <Property Name="MA_MUON_TRA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MA_CHINH_SACH" Type="Int32" Nullable="false" />
+          <Property Name="MA_DOC_GIA" Type="Int32" Nullable="false" />
+          <Property Name="MA_NHAN_VIEN" Type="Int32" Nullable="false" />
+          <Property Name="NGAY_GIO_LAP" Type="DateTime" Precision="3" />
+          <Property Name="NGAY_PHAI_TRA" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CHINH_SACH_LUU_THONG" Relationship="Self.FK_MUON_TRA_CO_CHINH__CHINH_SA" FromRole="MUON_TRA_SACH" ToRole="CHINH_SACH_LUU_THONG" />
+          <NavigationProperty Name="DOC_GIA" Relationship="Self.FK_MUON_TRA_DOC_GIA_M_DOC_GIA" FromRole="MUON_TRA_SACH" ToRole="DOC_GIA" />
+          <NavigationProperty Name="NHAN_VIEN" Relationship="Self.FK_MUON_TRA_NGUOI_LAP_NHAN_VIE" FromRole="MUON_TRA_SACH" ToRole="NHAN_VIEN" />
+          <NavigationProperty Name="PHATs" Relationship="Self.FK_PHAT_BI_PHAT_MUON_TRA" FromRole="MUON_TRA_SACH" ToRole="PHAT" />
+          <NavigationProperty Name="SACH_MUON" Relationship="QuanLyThuVienModel.FK_SACH_MUO_MUON_NHUN_MUON_TRA" FromRole="MUON_TRA_SACH" ToRole="SACH_MUON" />
+        </EntityType>
+        <EntityType Name="NGON_NGU">
+          <Key>
+            <PropertyRef Name="MA_NGON_NGU" />
+          </Key>
+          <Property Name="MA_NGON_NGU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN_NGON_NGU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DAU_SACH" Relationship="Self.FK_DAU_SACH_CO_NGON_N_NGON_NGU" FromRole="NGON_NGU" ToRole="DAU_SACH" />
+        </EntityType>
+        <EntityType Name="NHA_XUAT_BAN">
+          <Key>
+            <PropertyRef Name="MA_NXB" />
+          </Key>
+          <Property Name="MA_NXB" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN_NXB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DAU_SACH" Relationship="Self.FK_DAU_SACH_DAU_SACH__NHA_XUAT" FromRole="NHA_XUAT_BAN" ToRole="DAU_SACH" />
+        </EntityType>
+        <EntityType Name="NHAN_VIEN">
+          <Key>
+            <PropertyRef Name="MA_NHAN_VIEN" />
+          </Key>
+          <Property Name="MA_NHAN_VIEN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN_NHAN_VIEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DIA_CHI_NHAN_VIEN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SDT_NHAN_VIEN" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="GIU_CHUC_VU" Relationship="Self.FK_GIU_CHUC_NHAN_VIEN_NHAN_VIE" FromRole="NHAN_VIEN" ToRole="GIU_CHUC_VU" />
+          <NavigationProperty Name="MUON_TRA_SACH" Relationship="Self.FK_MUON_TRA_NGUOI_LAP_NHAN_VIE" FromRole="NHAN_VIEN" ToRole="MUON_TRA_SACH" />
+          <NavigationProperty Name="TAI_KHOAN" Relationship="Self.FK_TAI_KHOA_NHAN_VIEN_NHAN_VIE" FromRole="NHAN_VIEN" ToRole="TAI_KHOAN" />
+          <Property Name="GIOI_TINH_NHAN_VIEN" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="PHAT">
+          <Key>
+            <PropertyRef Name="MA_MUON_TRA" />
+            <PropertyRef Name="MA_LY_DO" />
+            <PropertyRef Name="MA_SACH" />
+          </Key>
+          <Property Name="MA_MUON_TRA" Type="Int32" Nullable="false" />
+          <Property Name="MA_LY_DO" Type="Int32" Nullable="false" />
+          <Property Name="MA_SACH" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CUON_SACH" Relationship="Self.FK_PHAT_SACH_PHAT_CUON_SAC" FromRole="PHAT" ToRole="CUON_SACH" />
+          <NavigationProperty Name="LY_DO_PHAT" Relationship="Self.FK_PHAT_PHAT_VOI__LY_DO_PH" FromRole="PHAT" ToRole="LY_DO_PHAT" />
+          <NavigationProperty Name="MUON_TRA_SACH" Relationship="Self.FK_PHAT_BI_PHAT_MUON_TRA" FromRole="PHAT" ToRole="MUON_TRA_SACH" />
+          <Property Name="SO_TIEN_BI_PHAT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TAC_GIA">
+          <Key>
+            <PropertyRef Name="MA_TAC_GIA" />
+          </Key>
+          <Property Name="MA_TAC_GIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN_TAC_GIA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DAU_SACH" Relationship="Self.DAU_SACH_CUA_TAC_GIA" FromRole="TAC_GIA" ToRole="DAU_SACH" />
+        </EntityType>
+        <EntityType Name="TAI_KHOAN">
+          <Key>
+            <PropertyRef Name="MA_TAI_KHOAN" />
+          </Key>
+          <Property Name="MA_TAI_KHOAN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MA_NHAN_VIEN" Type="Int32" />
+          <Property Name="MA_DOC_GIA" Type="Int32" />
+          <Property Name="TEN_TAI_KHOAN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MAT_KHAU" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DOC_GIA" Relationship="Self.FK_TAI_KHOA_CO_TAI_KH_DOC_GIA" FromRole="TAI_KHOAN" ToRole="DOC_GIA" />
+          <NavigationProperty Name="NHAN_VIEN" Relationship="Self.FK_TAI_KHOA_NHAN_VIEN_NHAN_VIE" FromRole="TAI_KHOAN" ToRole="NHAN_VIEN" />
+        </EntityType>
+        <Association Name="FK_MUON_TRA_CO_CHINH__CHINH_SA">
+          <End Role="CHINH_SACH_LUU_THONG" Type="Self.CHINH_SACH_LUU_THONG" Multiplicity="1" />
+          <End Role="MUON_TRA_SACH" Type="Self.MUON_TRA_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHINH_SACH_LUU_THONG">
+              <PropertyRef Name="MA_CHINH_SACH" />
+            </Principal>
+            <Dependent Role="MUON_TRA_SACH">
+              <PropertyRef Name="MA_CHINH_SACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GIU_CHUC_GIU_CHUC__CHUC_VU">
+          <End Role="CHUC_VU" Type="Self.CHUC_VU" Multiplicity="1" />
+          <End Role="GIU_CHUC_VU" Type="Self.GIU_CHUC_VU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUC_VU">
+              <PropertyRef Name="MA_CHUC_VU" />
+            </Principal>
+            <Dependent Role="GIU_CHUC_VU">
+              <PropertyRef Name="MA_CHUC_VU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUON_SAC_DAU_SACH__DAU_SACH">
+          <End Role="DAU_SACH" Type="Self.DAU_SACH" Multiplicity="1" />
+          <End Role="CUON_SACH" Type="Self.CUON_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAU_SACH">
+              <PropertyRef Name="MA_DAU_SACH" />
+            </Principal>
+            <Dependent Role="CUON_SACH">
+              <PropertyRef Name="MA_DAU_SACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHAT_SACH_PHAT_CUON_SAC">
+          <End Role="CUON_SACH" Type="Self.CUON_SACH" Multiplicity="1" />
+          <End Role="PHAT" Type="Self.PHAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUON_SACH">
+              <PropertyRef Name="MA_SACH" />
+            </Principal>
+            <Dependent Role="PHAT">
+              <PropertyRef Name="MA_SACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAU_SACH_CO_NGON_N_NGON_NGU">
+          <End Role="NGON_NGU" Type="Self.NGON_NGU" Multiplicity="1" />
+          <End Role="DAU_SACH" Type="Self.DAU_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGON_NGU">
+              <PropertyRef Name="MA_NGON_NGU" />
+            </Principal>
+            <Dependent Role="DAU_SACH">
+              <PropertyRef Name="MA_NGON_NGU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAU_SACH_DAU_SACH__NHA_XUAT">
+          <End Role="NHA_XUAT_BAN" Type="Self.NHA_XUAT_BAN" Multiplicity="1" />
+          <End Role="DAU_SACH" Type="Self.DAU_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHA_XUAT_BAN">
+              <PropertyRef Name="MA_NXB" />
+            </Principal>
+            <Dependent Role="DAU_SACH">
+              <PropertyRef Name="MA_NXB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DAU_SACH_LOAI_SACH_LOAI_SAC">
+          <End Role="LOAI_SACH" Type="Self.LOAI_SACH" Multiplicity="1" />
+          <End Role="DAU_SACH" Type="Self.DAU_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAI_SACH">
+              <PropertyRef Name="MA_LOAI_SACH" />
+            </Principal>
+            <Dependent Role="DAU_SACH">
+              <PropertyRef Name="MA_LOAI_SACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOC_GIA_DOC_GIA_T_DOI_TUON">
+          <End Role="DOI_TUONG" Type="Self.DOI_TUONG" Multiplicity="1" />
+          <End Role="DOC_GIA" Type="Self.DOC_GIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOI_TUONG">
+              <PropertyRef Name="MA_DOI_TUONG" />
+            </Principal>
+            <Dependent Role="DOC_GIA">
+              <PropertyRef Name="MA_DOI_TUONG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MUON_TRA_DOC_GIA_M_DOC_GIA">
+          <End Role="DOC_GIA" Type="Self.DOC_GIA" Multiplicity="1" />
+          <End Role="MUON_TRA_SACH" Type="Self.MUON_TRA_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOC_GIA">
+              <PropertyRef Name="MA_DOC_GIA" />
+            </Principal>
+            <Dependent Role="MUON_TRA_SACH">
+              <PropertyRef Name="MA_DOC_GIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TAI_KHOA_CO_TAI_KH_DOC_GIA">
+          <End Role="DOC_GIA" Type="Self.DOC_GIA" Multiplicity="0..1" />
+          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOC_GIA">
+              <PropertyRef Name="MA_DOC_GIA" />
+            </Principal>
+            <Dependent Role="TAI_KHOAN">
+              <PropertyRef Name="MA_DOC_GIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GIU_CHUC_NHAN_VIEN_NHAN_VIE">
+          <End Role="NHAN_VIEN" Type="Self.NHAN_VIEN" Multiplicity="1" />
+          <End Role="GIU_CHUC_VU" Type="Self.GIU_CHUC_VU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHAN_VIEN">
+              <PropertyRef Name="MA_NHAN_VIEN" />
+            </Principal>
+            <Dependent Role="GIU_CHUC_VU">
+              <PropertyRef Name="MA_NHAN_VIEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KE_SACH_KHU_VUC_C_KHU_VUC">
+          <End Role="KHU_VUC" Type="Self.KHU_VUC" Multiplicity="1" />
+          <End Role="KE_SACH" Type="Self.KE_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHU_VUC">
+              <PropertyRef Name="MA_KHU_VUC" />
+            </Principal>
+            <Dependent Role="KE_SACH">
+              <PropertyRef Name="MA_KHU_VUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHAT_PHAT_VOI__LY_DO_PH">
+          <End Role="LY_DO_PHAT" Type="Self.LY_DO_PHAT" Multiplicity="1" />
+          <End Role="PHAT" Type="Self.PHAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LY_DO_PHAT">
+              <PropertyRef Name="MA_LY_DO" />
+            </Principal>
+            <Dependent Role="PHAT">
+              <PropertyRef Name="MA_LY_DO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MUON_TRA_NGUOI_LAP_NHAN_VIE">
+          <End Role="NHAN_VIEN" Type="Self.NHAN_VIEN" Multiplicity="1" />
+          <End Role="MUON_TRA_SACH" Type="Self.MUON_TRA_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHAN_VIEN">
+              <PropertyRef Name="MA_NHAN_VIEN" />
+            </Principal>
+            <Dependent Role="MUON_TRA_SACH">
+              <PropertyRef Name="MA_NHAN_VIEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHAT_BI_PHAT_MUON_TRA">
+          <End Role="MUON_TRA_SACH" Type="Self.MUON_TRA_SACH" Multiplicity="1" />
+          <End Role="PHAT" Type="Self.PHAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUON_TRA_SACH">
+              <PropertyRef Name="MA_MUON_TRA" />
+            </Principal>
+            <Dependent Role="PHAT">
+              <PropertyRef Name="MA_MUON_TRA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TAI_KHOA_NHAN_VIEN_NHAN_VIE">
+          <End Role="NHAN_VIEN" Type="Self.NHAN_VIEN" Multiplicity="0..1" />
+          <End Role="TAI_KHOAN" Type="Self.TAI_KHOAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHAN_VIEN">
+              <PropertyRef Name="MA_NHAN_VIEN" />
+            </Principal>
+            <Dependent Role="TAI_KHOAN">
+              <PropertyRef Name="MA_NHAN_VIEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DAU_SACH_CUA_TAC_GIA">
+          <End Role="DAU_SACH" Type="Self.DAU_SACH" Multiplicity="*" />
+          <End Role="TAC_GIA" Type="Self.TAC_GIA" Multiplicity="*" />
+        </Association>
+        <Association Name="KE_SACH_CO_DAU_SACH">
+          <End Role="DAU_SACH" Type="Self.DAU_SACH" Multiplicity="*" />
+          <End Role="KE_SACH" Type="Self.KE_SACH" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="QuanLyThuVienEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CHINH_SACH_LUU_THONG" EntityType="Self.CHINH_SACH_LUU_THONG" />
+          <EntitySet Name="CHUC_VU" EntityType="Self.CHUC_VU" />
+          <EntitySet Name="CUON_SACH" EntityType="Self.CUON_SACH" />
+          <EntitySet Name="DAU_SACH" EntityType="Self.DAU_SACH" />
+          <EntitySet Name="DOC_GIA" EntityType="Self.DOC_GIA" />
+          <EntitySet Name="DOI_TUONG" EntityType="Self.DOI_TUONG" />
+          <EntitySet Name="GIU_CHUC_VU" EntityType="Self.GIU_CHUC_VU" />
+          <EntitySet Name="KE_SACH" EntityType="Self.KE_SACH" />
+          <EntitySet Name="KHU_VUC" EntityType="Self.KHU_VUC" />
+          <EntitySet Name="LOAI_SACH" EntityType="Self.LOAI_SACH" />
+          <EntitySet Name="LY_DO_PHAT" EntityType="Self.LY_DO_PHAT" />
+          <EntitySet Name="MUON_TRA_SACH" EntityType="Self.MUON_TRA_SACH" />
+          <EntitySet Name="NGON_NGU" EntityType="Self.NGON_NGU" />
+          <EntitySet Name="NHA_XUAT_BAN" EntityType="Self.NHA_XUAT_BAN" />
+          <EntitySet Name="NHAN_VIEN" EntityType="Self.NHAN_VIEN" />
+          <EntitySet Name="PHATs" EntityType="Self.PHAT" />
+          <EntitySet Name="TAC_GIA" EntityType="Self.TAC_GIA" />
+          <EntitySet Name="TAI_KHOAN" EntityType="Self.TAI_KHOAN" />
+          <AssociationSet Name="FK_MUON_TRA_CO_CHINH__CHINH_SA" Association="Self.FK_MUON_TRA_CO_CHINH__CHINH_SA">
+            <End Role="CHINH_SACH_LUU_THONG" EntitySet="CHINH_SACH_LUU_THONG" />
+            <End Role="MUON_TRA_SACH" EntitySet="MUON_TRA_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GIU_CHUC_GIU_CHUC__CHUC_VU" Association="Self.FK_GIU_CHUC_GIU_CHUC__CHUC_VU">
+            <End Role="CHUC_VU" EntitySet="CHUC_VU" />
+            <End Role="GIU_CHUC_VU" EntitySet="GIU_CHUC_VU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUON_SAC_DAU_SACH__DAU_SACH" Association="Self.FK_CUON_SAC_DAU_SACH__DAU_SACH">
+            <End Role="DAU_SACH" EntitySet="DAU_SACH" />
+            <End Role="CUON_SACH" EntitySet="CUON_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHAT_SACH_PHAT_CUON_SAC" Association="Self.FK_PHAT_SACH_PHAT_CUON_SAC">
+            <End Role="CUON_SACH" EntitySet="CUON_SACH" />
+            <End Role="PHAT" EntitySet="PHATs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAU_SACH_CO_NGON_N_NGON_NGU" Association="Self.FK_DAU_SACH_CO_NGON_N_NGON_NGU">
+            <End Role="NGON_NGU" EntitySet="NGON_NGU" />
+            <End Role="DAU_SACH" EntitySet="DAU_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAU_SACH_DAU_SACH__NHA_XUAT" Association="Self.FK_DAU_SACH_DAU_SACH__NHA_XUAT">
+            <End Role="NHA_XUAT_BAN" EntitySet="NHA_XUAT_BAN" />
+            <End Role="DAU_SACH" EntitySet="DAU_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DAU_SACH_LOAI_SACH_LOAI_SAC" Association="Self.FK_DAU_SACH_LOAI_SACH_LOAI_SAC">
+            <End Role="LOAI_SACH" EntitySet="LOAI_SACH" />
+            <End Role="DAU_SACH" EntitySet="DAU_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOC_GIA_DOC_GIA_T_DOI_TUON" Association="Self.FK_DOC_GIA_DOC_GIA_T_DOI_TUON">
+            <End Role="DOI_TUONG" EntitySet="DOI_TUONG" />
+            <End Role="DOC_GIA" EntitySet="DOC_GIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MUON_TRA_DOC_GIA_M_DOC_GIA" Association="Self.FK_MUON_TRA_DOC_GIA_M_DOC_GIA">
+            <End Role="DOC_GIA" EntitySet="DOC_GIA" />
+            <End Role="MUON_TRA_SACH" EntitySet="MUON_TRA_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TAI_KHOA_CO_TAI_KH_DOC_GIA" Association="Self.FK_TAI_KHOA_CO_TAI_KH_DOC_GIA">
+            <End Role="DOC_GIA" EntitySet="DOC_GIA" />
+            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GIU_CHUC_NHAN_VIEN_NHAN_VIE" Association="Self.FK_GIU_CHUC_NHAN_VIEN_NHAN_VIE">
+            <End Role="NHAN_VIEN" EntitySet="NHAN_VIEN" />
+            <End Role="GIU_CHUC_VU" EntitySet="GIU_CHUC_VU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KE_SACH_KHU_VUC_C_KHU_VUC" Association="Self.FK_KE_SACH_KHU_VUC_C_KHU_VUC">
+            <End Role="KHU_VUC" EntitySet="KHU_VUC" />
+            <End Role="KE_SACH" EntitySet="KE_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHAT_PHAT_VOI__LY_DO_PH" Association="Self.FK_PHAT_PHAT_VOI__LY_DO_PH">
+            <End Role="LY_DO_PHAT" EntitySet="LY_DO_PHAT" />
+            <End Role="PHAT" EntitySet="PHATs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MUON_TRA_NGUOI_LAP_NHAN_VIE" Association="Self.FK_MUON_TRA_NGUOI_LAP_NHAN_VIE">
+            <End Role="NHAN_VIEN" EntitySet="NHAN_VIEN" />
+            <End Role="MUON_TRA_SACH" EntitySet="MUON_TRA_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHAT_BI_PHAT_MUON_TRA" Association="Self.FK_PHAT_BI_PHAT_MUON_TRA">
+            <End Role="MUON_TRA_SACH" EntitySet="MUON_TRA_SACH" />
+            <End Role="PHAT" EntitySet="PHATs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TAI_KHOA_NHAN_VIEN_NHAN_VIE" Association="Self.FK_TAI_KHOA_NHAN_VIEN_NHAN_VIE">
+            <End Role="NHAN_VIEN" EntitySet="NHAN_VIEN" />
+            <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
+          </AssociationSet>
+          <AssociationSet Name="DAU_SACH_CUA_TAC_GIA" Association="Self.DAU_SACH_CUA_TAC_GIA">
+            <End Role="DAU_SACH" EntitySet="DAU_SACH" />
+            <End Role="TAC_GIA" EntitySet="TAC_GIA" />
+          </AssociationSet>
+          <AssociationSet Name="KE_SACH_CO_DAU_SACH" Association="Self.KE_SACH_CO_DAU_SACH">
+            <End Role="DAU_SACH" EntitySet="DAU_SACH" />
+            <End Role="KE_SACH" EntitySet="KE_SACH" />
+          </AssociationSet>
+          <EntitySet Name="SACH_MUON" EntityType="QuanLyThuVienModel.SACH_MUON" />
+          <AssociationSet Name="FK_SACH_MUO_SACH_DUOC_CUON_SAC" Association="QuanLyThuVienModel.FK_SACH_MUO_SACH_DUOC_CUON_SAC">
+            <End Role="CUON_SACH" EntitySet="CUON_SACH" />
+            <End Role="SACH_MUON" EntitySet="SACH_MUON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SACH_MUO_MUON_NHUN_MUON_TRA" Association="QuanLyThuVienModel.FK_SACH_MUO_MUON_NHUN_MUON_TRA">
+            <End Role="MUON_TRA_SACH" EntitySet="MUON_TRA_SACH" />
+            <End Role="SACH_MUON" EntitySet="SACH_MUON" />
+          </AssociationSet>
+          <EntitySet Name="CUNG_CAP_SACH" EntityType="QuanLyThuVienModel.CUNG_CAP_SACH" />
+          <EntitySet Name="NHA_CUNG_CAP" EntityType="QuanLyThuVienModel.NHA_CUNG_CAP" />
+          <EntitySet Name="QUYENs" EntityType="QuanLyThuVienModel.QUYEN" />
+          <EntitySet Name="QUYEN_SD" EntityType="QuanLyThuVienModel.QUYEN_SD" />
+          <AssociationSet Name="FK_QUYEN_SD_CHUC_VU" Association="QuanLyThuVienModel.FK_QUYEN_SD_CHUC_VU">
+            <End Role="CHUC_VU" EntitySet="CHUC_VU" />
+            <End Role="QUYEN_SD" EntitySet="QUYEN_SD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUNG_CAP_SACH_CUON_SACH" Association="QuanLyThuVienModel.FK_CUNG_CAP_SACH_CUON_SACH">
+            <End Role="CUON_SACH" EntitySet="CUON_SACH" />
+            <End Role="CUNG_CAP_SACH" EntitySet="CUNG_CAP_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUNG_CAP_SACH_NHA_CUNG_CAP" Association="QuanLyThuVienModel.FK_CUNG_CAP_SACH_NHA_CUNG_CAP">
+            <End Role="NHA_CUNG_CAP" EntitySet="NHA_CUNG_CAP" />
+            <End Role="CUNG_CAP_SACH" EntitySet="CUNG_CAP_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QUYEN_SD_QUYEN" Association="QuanLyThuVienModel.FK_QUYEN_SD_QUYEN">
+            <End Role="QUYEN" EntitySet="QUYENs" />
+            <End Role="QUYEN_SD" EntitySet="QUYEN_SD" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="SACH_MUON">
+          <Key>
+            <PropertyRef Name="MA_SACH" />
+            <PropertyRef Name="MA_MUON_TRA" />
+          </Key>
+          <Property Name="MA_SACH" Type="Int32" Nullable="false" />
+          <Property Name="MA_MUON_TRA" Type="Int32" Nullable="false" />
+          <Property Name="NGAY_PHAI_TRA" Type="DateTime" Precision="3" />
+          <Property Name="DA_TRA" Type="Boolean" />
+          <NavigationProperty Name="CUON_SACH" Relationship="QuanLyThuVienModel.FK_SACH_MUO_SACH_DUOC_CUON_SAC" FromRole="SACH_MUON" ToRole="CUON_SACH" />
+          <NavigationProperty Name="MUON_TRA_SACH" Relationship="QuanLyThuVienModel.FK_SACH_MUO_MUON_NHUN_MUON_TRA" FromRole="SACH_MUON" ToRole="MUON_TRA_SACH" />
+          <Property Name="THOI_GIAN_TRA" Type="DateTime" Precision="3" />
+          <Property Name="GIA_HAN" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_SACH_MUO_SACH_DUOC_CUON_SAC">
+          <End Type="QuanLyThuVienModel.CUON_SACH" Role="CUON_SACH" Multiplicity="1" />
+          <End Type="QuanLyThuVienModel.SACH_MUON" Role="SACH_MUON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUON_SACH">
+              <PropertyRef Name="MA_SACH" />
+            </Principal>
+            <Dependent Role="SACH_MUON">
+              <PropertyRef Name="MA_SACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SACH_MUO_MUON_NHUN_MUON_TRA">
+          <End Type="QuanLyThuVienModel.MUON_TRA_SACH" Role="MUON_TRA_SACH" Multiplicity="1" />
+          <End Type="QuanLyThuVienModel.SACH_MUON" Role="SACH_MUON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUON_TRA_SACH">
+              <PropertyRef Name="MA_MUON_TRA" />
+            </Principal>
+            <Dependent Role="SACH_MUON">
+              <PropertyRef Name="MA_MUON_TRA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CUNG_CAP_SACH">
+          <Key>
+            <PropertyRef Name="MA_NCC" />
+            <PropertyRef Name="MA_SACH" />
+          </Key>
+          <Property Name="MA_NCC" Type="Int32" Nullable="false" />
+          <Property Name="MA_SACH" Type="Int32" Nullable="false" />
+          <Property Name="THOI_GIAN" Type="DateTime" Precision="3" />
+          <Property Name="SOLUONG" Type="Int32" />
+          <NavigationProperty Name="CUON_SACH" Relationship="QuanLyThuVienModel.FK_CUNG_CAP_SACH_CUON_SACH" FromRole="CUNG_CAP_SACH" ToRole="CUON_SACH" />
+          <NavigationProperty Name="NHA_CUNG_CAP" Relationship="QuanLyThuVienModel.FK_CUNG_CAP_SACH_NHA_CUNG_CAP" FromRole="CUNG_CAP_SACH" ToRole="NHA_CUNG_CAP" />
+        </EntityType>
+        <EntityType Name="NHA_CUNG_CAP">
+          <Key>
+            <PropertyRef Name="MA_NCC" />
+          </Key>
+          <Property Name="MA_NCC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN_NCC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CUNG_CAP_SACH" Relationship="QuanLyThuVienModel.FK_CUNG_CAP_SACH_NHA_CUNG_CAP" FromRole="NHA_CUNG_CAP" ToRole="CUNG_CAP_SACH" />
+        </EntityType>
+        <EntityType Name="QUYEN">
+          <Key>
+            <PropertyRef Name="MA_QUYEN" />
+          </Key>
+          <Property Name="MA_QUYEN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEN_QUYEN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="QUYEN_SD" Relationship="QuanLyThuVienModel.FK_QUYEN_SD_QUYEN" FromRole="QUYEN" ToRole="QUYEN_SD" />
+        </EntityType>
+        <EntityType Name="QUYEN_SD">
+          <Key>
+            <PropertyRef Name="MA_QUYEN" />
+            <PropertyRef Name="MA_CHUC_VU" />
+          </Key>
+          <Property Name="MA_QUYEN" Type="Int32" Nullable="false" />
+          <Property Name="MA_CHUC_VU" Type="Int32" Nullable="false" />
+          <Property Name="MENU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CHUC_VU" Relationship="QuanLyThuVienModel.FK_QUYEN_SD_CHUC_VU" FromRole="QUYEN_SD" ToRole="CHUC_VU" />
+          <NavigationProperty Name="QUYEN" Relationship="QuanLyThuVienModel.FK_QUYEN_SD_QUYEN" FromRole="QUYEN_SD" ToRole="QUYEN" />
+        </EntityType>
+        <Association Name="FK_QUYEN_SD_CHUC_VU">
+          <End Type="QuanLyThuVienModel.CHUC_VU" Role="CHUC_VU" Multiplicity="1" />
+          <End Type="QuanLyThuVienModel.QUYEN_SD" Role="QUYEN_SD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUC_VU">
+              <PropertyRef Name="MA_CHUC_VU" />
+            </Principal>
+            <Dependent Role="QUYEN_SD">
+              <PropertyRef Name="MA_CHUC_VU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUNG_CAP_SACH_CUON_SACH">
+          <End Type="QuanLyThuVienModel.CUON_SACH" Role="CUON_SACH" Multiplicity="1" />
+          <End Type="QuanLyThuVienModel.CUNG_CAP_SACH" Role="CUNG_CAP_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUON_SACH">
+              <PropertyRef Name="MA_SACH" />
+            </Principal>
+            <Dependent Role="CUNG_CAP_SACH">
+              <PropertyRef Name="MA_SACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUNG_CAP_SACH_NHA_CUNG_CAP">
+          <End Type="QuanLyThuVienModel.NHA_CUNG_CAP" Role="NHA_CUNG_CAP" Multiplicity="1" />
+          <End Type="QuanLyThuVienModel.CUNG_CAP_SACH" Role="CUNG_CAP_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHA_CUNG_CAP">
+              <PropertyRef Name="MA_NCC" />
+            </Principal>
+            <Dependent Role="CUNG_CAP_SACH">
+              <PropertyRef Name="MA_NCC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QUYEN_SD_QUYEN">
+          <End Type="QuanLyThuVienModel.QUYEN" Role="QUYEN" Multiplicity="1" />
+          <End Type="QuanLyThuVienModel.QUYEN_SD" Role="QUYEN_SD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUYEN">
+              <PropertyRef Name="MA_QUYEN" />
+            </Principal>
+            <Dependent Role="QUYEN_SD">
+              <PropertyRef Name="MA_QUYEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QuanLyThuVienModelStoreContainer" CdmEntityContainer="QuanLyThuVienEntities1">
+          <EntitySetMapping Name="CHINH_SACH_LUU_THONG">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.CHINH_SACH_LUU_THONG">
+              <MappingFragment StoreEntitySet="CHINH_SACH_LUU_THONG">
+                <ScalarProperty Name="MA_CHINH_SACH" ColumnName="MA_CHINH_SACH" />
+                <ScalarProperty Name="SO_SACH_MUON_TOI_DA" ColumnName="SO_SACH_MUON_TOI_DA" />
+                <ScalarProperty Name="SO_NGAY_MUON" ColumnName="SO_NGAY_MUON" />
+                <ScalarProperty Name="SO_LAN_DUOC_GIA_HAN" ColumnName="SO_LAN_DUOC_GIA_HAN" />
+                <ScalarProperty Name="SO_NGAY_GIA_HAN" ColumnName="SO_NGAY_GIA_HAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHUC_VU">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.CHUC_VU">
+              <MappingFragment StoreEntitySet="CHUC_VU">
+                <ScalarProperty Name="MA_CHUC_VU" ColumnName="MA_CHUC_VU" />
+                <ScalarProperty Name="TEN_CHUC_VU" ColumnName="TEN_CHUC_VU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUON_SACH">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.CUON_SACH">
+              <MappingFragment StoreEntitySet="CUON_SACH">
+                <ScalarProperty Name="TAI_BAN" ColumnName="TAI_BAN" />
+                <ScalarProperty Name="MA_VACH" ColumnName="MA_VACH" />
+                <ScalarProperty Name="NAM_XUAT_BAN" ColumnName="NAM_XUAT_BAN" />
+                <ScalarProperty Name="SO_LUONG" ColumnName="SO_LUONG" />
+                <ScalarProperty Name="MA_SACH" ColumnName="MA_SACH" />
+                <ScalarProperty Name="MA_DAU_SACH" ColumnName="MA_DAU_SACH" />
+                <ScalarProperty Name="GIA_SACH" ColumnName="GIA_SACH" />
+                <ScalarProperty Name="TEN_SACH" ColumnName="TEN_SACH" />
+                <ScalarProperty Name="SO_TRANG" ColumnName="SO_TRANG" />
+                <ScalarProperty Name="GHI_CHU_SACH" ColumnName="GHI_CHU_SACH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DAU_SACH">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.DAU_SACH">
+              <MappingFragment StoreEntitySet="DAU_SACH">
+                <ScalarProperty Name="MA_DAU_SACH" ColumnName="MA_DAU_SACH" />
+                <ScalarProperty Name="MA_NGON_NGU" ColumnName="MA_NGON_NGU" />
+                <ScalarProperty Name="MA_NXB" ColumnName="MA_NXB" />
+                <ScalarProperty Name="MA_LOAI_SACH" ColumnName="MA_LOAI_SACH" />
+                <ScalarProperty Name="TEN_DAU_SACH" ColumnName="TEN_DAU_SACH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DOC_GIA">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.DOC_GIA">
+              <MappingFragment StoreEntitySet="DOC_GIA">
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+                <ScalarProperty Name="GIOI_TINH_DOC_GIA" ColumnName="GIOI_TINH_DOC_GIA" />
+                <ScalarProperty Name="MA_DOC_GIA" ColumnName="MA_DOC_GIA" />
+                <ScalarProperty Name="MA_DOI_TUONG" ColumnName="MA_DOI_TUONG" />
+                <ScalarProperty Name="TEN_DOC_GIA" ColumnName="TEN_DOC_GIA" />
+                <ScalarProperty Name="SDT_DOC_GIA" ColumnName="SDT_DOC_GIA" />
+                <ScalarProperty Name="DIA_CHI_DOC_GIA" ColumnName="DIA_CHI_DOC_GIA" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="NGAY_THAM_GIA" ColumnName="NGAY_THAM_GIA" />
+                <ScalarProperty Name="NGAY_HET_HAN" ColumnName="NGAY_HET_HAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DOI_TUONG">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.DOI_TUONG">
+              <MappingFragment StoreEntitySet="DOI_TUONG">
+                <ScalarProperty Name="MA_DOI_TUONG" ColumnName="MA_DOI_TUONG" />
+                <ScalarProperty Name="TEN_DOI_TUONG" ColumnName="TEN_DOI_TUONG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GIU_CHUC_VU">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.GIU_CHUC_VU">
+              <MappingFragment StoreEntitySet="GIU_CHUC_VU">
+                <ScalarProperty Name="MA_NHAN_VIEN" ColumnName="MA_NHAN_VIEN" />
+                <ScalarProperty Name="MA_CHUC_VU" ColumnName="MA_CHUC_VU" />
+                <ScalarProperty Name="NGAY_BAT_DAU" ColumnName="NGAY_BAT_DAU" />
+                <ScalarProperty Name="NGAY_KET_THUC" ColumnName="NGAY_KET_THUC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KE_SACH">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.KE_SACH">
+              <MappingFragment StoreEntitySet="KE_SACH">
+                <ScalarProperty Name="MA_KE_SACH" ColumnName="MA_KE_SACH" />
+                <ScalarProperty Name="MA_KHU_VUC" ColumnName="MA_KHU_VUC" />
+                <ScalarProperty Name="TEN_KE_SACH" ColumnName="TEN_KE_SACH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHU_VUC">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.KHU_VUC">
+              <MappingFragment StoreEntitySet="KHU_VUC">
+                <ScalarProperty Name="MA_KHU_VUC" ColumnName="MA_KHU_VUC" />
+                <ScalarProperty Name="TEN_KHU_VUC" ColumnName="TEN_KHU_VUC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOAI_SACH">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.LOAI_SACH">
+              <MappingFragment StoreEntitySet="LOAI_SACH">
+                <ScalarProperty Name="MA_LOAI_SACH" ColumnName="MA_LOAI_SACH" />
+                <ScalarProperty Name="TEN_LOAI_SACH" ColumnName="TEN_LOAI_SACH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LY_DO_PHAT">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.LY_DO_PHAT">
+              <MappingFragment StoreEntitySet="LY_DO_PHAT">
+                <ScalarProperty Name="GHI_CHU_PHAT" ColumnName="GHI_CHU_PHAT" />
+                <ScalarProperty Name="MA_LY_DO" ColumnName="MA_LY_DO" />
+                <ScalarProperty Name="LY_DO_PHAT1" ColumnName="LY_DO_PHAT" />
+                <ScalarProperty Name="SO_TIEN_PHAT" ColumnName="SO_TIEN_PHAT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MUON_TRA_SACH">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.MUON_TRA_SACH">
+              <MappingFragment StoreEntitySet="MUON_TRA_SACH">
+                <ScalarProperty Name="MA_MUON_TRA" ColumnName="MA_MUON_TRA" />
+                <ScalarProperty Name="MA_CHINH_SACH" ColumnName="MA_CHINH_SACH" />
+                <ScalarProperty Name="MA_DOC_GIA" ColumnName="MA_DOC_GIA" />
+                <ScalarProperty Name="MA_NHAN_VIEN" ColumnName="MA_NHAN_VIEN" />
+                <ScalarProperty Name="NGAY_GIO_LAP" ColumnName="NGAY_GIO_LAP" />
+                <ScalarProperty Name="NGAY_PHAI_TRA" ColumnName="NGAY_PHAI_TRA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NGON_NGU">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.NGON_NGU">
+              <MappingFragment StoreEntitySet="NGON_NGU">
+                <ScalarProperty Name="MA_NGON_NGU" ColumnName="MA_NGON_NGU" />
+                <ScalarProperty Name="TEN_NGON_NGU" ColumnName="TEN_NGON_NGU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NHA_XUAT_BAN">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.NHA_XUAT_BAN">
+              <MappingFragment StoreEntitySet="NHA_XUAT_BAN">
+                <ScalarProperty Name="MA_NXB" ColumnName="MA_NXB" />
+                <ScalarProperty Name="TEN_NXB" ColumnName="TEN_NXB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NHAN_VIEN">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.NHAN_VIEN">
+              <MappingFragment StoreEntitySet="NHAN_VIEN">
+                <ScalarProperty Name="GIOI_TINH_NHAN_VIEN" ColumnName="GIOI_TINH_NHAN_VIEN" />
+                <ScalarProperty Name="MA_NHAN_VIEN" ColumnName="MA_NHAN_VIEN" />
+                <ScalarProperty Name="TEN_NHAN_VIEN" ColumnName="TEN_NHAN_VIEN" />
+                <ScalarProperty Name="DIA_CHI_NHAN_VIEN" ColumnName="DIA_CHI_NHAN_VIEN" />
+                <ScalarProperty Name="SDT_NHAN_VIEN" ColumnName="SDT_NHAN_VIEN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHATs">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.PHAT">
+              <MappingFragment StoreEntitySet="PHAT">
+                <ScalarProperty Name="SO_TIEN_BI_PHAT" ColumnName="SO_TIEN_BI_PHAT" />
+                <ScalarProperty Name="MA_MUON_TRA" ColumnName="MA_MUON_TRA" />
+                <ScalarProperty Name="MA_LY_DO" ColumnName="MA_LY_DO" />
+                <ScalarProperty Name="MA_SACH" ColumnName="MA_SACH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAC_GIA">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.TAC_GIA">
+              <MappingFragment StoreEntitySet="TAC_GIA">
+                <ScalarProperty Name="MA_TAC_GIA" ColumnName="MA_TAC_GIA" />
+                <ScalarProperty Name="TEN_TAC_GIA" ColumnName="TEN_TAC_GIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAI_KHOAN">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.TAI_KHOAN">
+              <MappingFragment StoreEntitySet="TAI_KHOAN">
+                <ScalarProperty Name="MA_TAI_KHOAN" ColumnName="MA_TAI_KHOAN" />
+                <ScalarProperty Name="MA_NHAN_VIEN" ColumnName="MA_NHAN_VIEN" />
+                <ScalarProperty Name="MA_DOC_GIA" ColumnName="MA_DOC_GIA" />
+                <ScalarProperty Name="TEN_TAI_KHOAN" ColumnName="TEN_TAI_KHOAN" />
+                <ScalarProperty Name="MAT_KHAU" ColumnName="MAT_KHAU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="DAU_SACH_CUA_TAC_GIA" TypeName="QuanLyThuVienModel.DAU_SACH_CUA_TAC_GIA" StoreEntitySet="DAU_SACH_CUA_TAC_GIA">
+            <EndProperty Name="DAU_SACH">
+              <ScalarProperty Name="MA_DAU_SACH" ColumnName="MA_DAU_SACH" />
+            </EndProperty>
+            <EndProperty Name="TAC_GIA">
+              <ScalarProperty Name="MA_TAC_GIA" ColumnName="MA_TAC_GIA" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="KE_SACH_CO_DAU_SACH" TypeName="QuanLyThuVienModel.KE_SACH_CO_DAU_SACH" StoreEntitySet="KE_SACH_CO_DAU_SACH">
+            <EndProperty Name="DAU_SACH">
+              <ScalarProperty Name="MA_DAU_SACH" ColumnName="MA_DAU_SACH" />
+            </EndProperty>
+            <EndProperty Name="KE_SACH">
+              <ScalarProperty Name="MA_KE_SACH" ColumnName="MA_KE_SACH" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="SACH_MUON">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.SACH_MUON">
+              <MappingFragment StoreEntitySet="SACH_MUON">
+                <ScalarProperty Name="GIA_HAN" ColumnName="GIA_HAN" />
+                <ScalarProperty Name="THOI_GIAN_TRA" ColumnName="THOI_GIAN_TRA" />
+                <ScalarProperty Name="DA_TRA" ColumnName="DA_TRA" />
+                <ScalarProperty Name="NGAY_PHAI_TRA" ColumnName="NGAY_PHAI_TRA" />
+                <ScalarProperty Name="MA_MUON_TRA" ColumnName="MA_MUON_TRA" />
+                <ScalarProperty Name="MA_SACH" ColumnName="MA_SACH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUNG_CAP_SACH">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.CUNG_CAP_SACH">
+              <MappingFragment StoreEntitySet="CUNG_CAP_SACH">
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="THOI_GIAN" ColumnName="THOI_GIAN" />
+                <ScalarProperty Name="MA_SACH" ColumnName="MA_SACH" />
+                <ScalarProperty Name="MA_NCC" ColumnName="MA_NCC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NHA_CUNG_CAP">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.NHA_CUNG_CAP">
+              <MappingFragment StoreEntitySet="NHA_CUNG_CAP">
+                <ScalarProperty Name="TEN_NCC" ColumnName="TEN_NCC" />
+                <ScalarProperty Name="MA_NCC" ColumnName="MA_NCC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUYENs">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.QUYEN">
+              <MappingFragment StoreEntitySet="QUYEN">
+                <ScalarProperty Name="TEN_QUYEN" ColumnName="TEN_QUYEN" />
+                <ScalarProperty Name="MA_QUYEN" ColumnName="MA_QUYEN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUYEN_SD">
+            <EntityTypeMapping TypeName="QuanLyThuVienModel.QUYEN_SD">
+              <MappingFragment StoreEntitySet="QUYEN_SD">
+                <ScalarProperty Name="MENU" ColumnName="MENU" />
+                <ScalarProperty Name="MA_CHUC_VU" ColumnName="MA_CHUC_VU" />
+                <ScalarProperty Name="MA_QUYEN" ColumnName="MA_QUYEN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

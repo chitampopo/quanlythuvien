@@ -1,0 +1,74 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.MUON_TRA_SACH>
+@{
+    ViewBag.Title = "TrangPhat";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Phiếu phạt</h2>
+<form action="/MuonTraSach/LapPhieuPhat" method="post" target="_blank">
+    <input type="hidden" name="maDocGia" value="@ViewBag.maDocGia" />
+    <input type="hidden" name="maMuon" value="@ViewBag.maMuon" />
+    @foreach (var item in Model)
+    {
+        int count = 0;
+        for (int i = 0; i < @item.SACH_MUON.Count; i++)
+        {
+            if (@item.SACH_MUON.ElementAt(i).DA_TRA == false)
+            {
+                count++;
+            }
+        }
+        if (count == 0)
+        {
+            continue;
+        }
+
+        <table class="table">
+            @for (int i = 0; i < @item.SACH_MUON.Count(); i++)
+            {
+
+                if (@item.SACH_MUON.ElementAt(i).DA_TRA == true)
+                {
+                    continue;
+                }
+                else
+                {
+                    DateTime ngayPhaiTra = (DateTime)@item.SACH_MUON.ElementAt(i).NGAY_PHAI_TRA;
+                    TimeSpan timespan = ngayPhaiTra.Subtract(DateTime.Now);
+                    int soNgayVuot = timespan.Days;
+                    int hienThiSoNgay = 0;
+                    hienThiSoNgay = -1 * soNgayVuot;
+
+                    <tr>
+                        <td><label>Tên sách:</label></td>
+                        <td>@item.SACH_MUON.ElementAt(i).CUON_SACH.TEN_SACH</td>
+                        <td><label>Quá hạn</label></td>
+                        <td>
+                            @{
+                    if (soNgayVuot < 0)
+                    {
+                        <p>Quá hạn @hienThiSoNgay ngày</p>
+                                <input type="hidden" name="VUOT @item.SACH_MUON.ElementAt(i).MA_SACH" value="@hienThiSoNgay">
+                    }
+                    else
+                    {
+                        <p>Không quá hạn</p>
+                                <input type="hidden" name="VUOT @item.SACH_MUON.ElementAt(i).MA_SACH" value="@hienThiSoNgay">
+                    }
+                            }
+
+                        </td>
+                        <td><label>Mất sách</label></td>
+                        <td>
+                            <input type="checkbox" name="MAT @item.SACH_MUON.ElementAt(i).MA_SACH" />
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+
+        <hr />
+    }
+    <input type="submit" class="btn btn-facebook" value="Lập phiếu phạt" formaction="LapPhieuPhat" />
+    <input type="submit" class="btn btn-facebook" value="Xử lý xong phiếu phạt" formaction="XuLyPhieuPhat" />
+</form>

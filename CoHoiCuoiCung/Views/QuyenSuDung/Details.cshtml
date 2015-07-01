@@ -1,0 +1,43 @@
+﻿@model CoHoiCuoiCung.Models.QUYEN_SD
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>QUYEN_SD</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MENU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MENU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CHUC_VU.TEN_CHUC_VU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHUC_VU.TEN_CHUC_VU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QUYEN.TEN_QUYEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QUYEN.TEN_QUYEN)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.LOAI_SACH>
+
+@{
+    ViewBag.Title = "Trang quản lý loại sách";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Loại sách</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới loại sách", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên loại sách
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEN_LOAI_SACH)
+        </td>
+        <td>
+            @Html.ActionLink("Cập nhật", "Edit", new { id=item.MA_LOAI_SACH })
+        </td>
+    </tr>
+}
+
+</table>

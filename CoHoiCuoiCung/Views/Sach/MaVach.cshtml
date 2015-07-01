@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Mã Vạch";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Trang Quản lý mã vạch</h2>
+<form action="/Sach/MaVach" method="post">
+    <div class="box">
+        <div class="box-header">
+            <input type="submit" value="In các mã vạch được chọn" class="btn btn-default" /><br /><br />
+        </div><!-- /.box-header -->
+        <div class="box-body">   
+            <table id="example1" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Tên sách</th>
+                        <th>Số trang</th>
+                        <th>Số lượng</th>
+                        <th>Mã vạch</th>
+                        <th>Số lượng in</th>
+                        <th>In</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @Html.Action("LietKeMaVach")
+                </tbody>
+            </table>
+        </div><!-- /.box-body -->
+    </div><!-- /.box -->
+</form>
+

@@ -1,0 +1,52 @@
+﻿@model CoHoiCuoiCung.Models.QUYEN_SD
+
+@{
+    ViewBag.Title = "Thêm mới quyền sử dụng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thêm mới quyền sử dụng</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MA_QUYEN, "Quyền", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MA_QUYEN", null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MA_QUYEN)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MA_CHUC_VU, "Chức vụ", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MA_CHUC_VU", null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MA_CHUC_VU)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MENU, "ID của menu", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.MENU, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MENU)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm" class="btn btn-default form-control" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Quay lại", "Index")
+</div>

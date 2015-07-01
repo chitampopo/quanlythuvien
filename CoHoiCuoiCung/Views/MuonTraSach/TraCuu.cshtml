@@ -1,0 +1,113 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.MUON_TRA_SACH>
+@{
+    ViewBag.Title = "Tra cứu mượn trả";
+    Layout = "~/Views/Shared/_LayoutDocGia.cshtml";
+    List<CoHoiCuoiCung.Models.MUON_TRA_SACH> listMuonTra = (List<CoHoiCuoiCung.Models.MUON_TRA_SACH>)ViewData["listMuonTra"];
+    CoHoiCuoiCung.Models.CHINH_SACH_LUU_THONG chinhSach = (CoHoiCuoiCung.Models.CHINH_SACH_LUU_THONG)ViewData["chinhSach"];
+}
+
+<h2>Tra cứu mượn trả</h2>
+<style>
+    td {
+        padding-right: 15px;
+    }
+</style>
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Những cuốn sách đã trả
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+                <table>
+                    <tr>
+                        <th>Thời gian mượn</th>
+                        <th>Tên sách</th>
+                        <th>Thời gian trả</th>
+                    </tr>
+                    @for (int i = 0; i < listMuonTra.Count; i++)
+                    {
+                        for (int j = 0; j < listMuonTra.ElementAt(i).SACH_MUON.Count; j++)
+                        {
+                            if (@listMuonTra.ElementAt(i).SACH_MUON.ElementAt(j).DA_TRA == true)
+                            {
+                                <tr>
+                                    <td>@listMuonTra.ElementAt(i).NGAY_GIO_LAP</td>
+                                    <td>
+                                        @listMuonTra.ElementAt(i).SACH_MUON.ElementAt(j).CUON_SACH.TEN_SACH
+                                    </td>
+                                    <td>
+                                        @listMuonTra.ElementAt(i).SACH_MUON.ElementAt(j).THOI_GIAN_TRA
+                                    </td>
+                                </tr>
+                            }
+                        }
+
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Những cuốn sách đang mượn
+                </a>
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body">
+                <table>
+                    <tr>
+                        <th>Thời gian mượn</th>
+                        <th>Tên sách</th>
+                        <th>Ngày phải trả</th>
+                        <th>Gia hạn</th>
+                        <th></th>
+                    </tr>
+                    @for (int i = 0; i < listMuonTra.Count; i++)
+                    {
+                        for (int j = 0; j < listMuonTra.ElementAt(i).SACH_MUON.Count; j++)
+                        {
+                            if (@listMuonTra.ElementAt(i).SACH_MUON.ElementAt(j).DA_TRA == false)
+                            {
+                                <tr>
+                                    <td>
+                                        @listMuonTra.ElementAt(i).NGAY_GIO_LAP
+                                    </td>
+                                    <td>
+                                        @listMuonTra.ElementAt(i).SACH_MUON.ElementAt(j).CUON_SACH.TEN_SACH
+                                    </td>
+                                    <td>
+                                        @listMuonTra.ElementAt(i).SACH_MUON.ElementAt(j).NGAY_PHAI_TRA
+                                    </td>
+                                    <td>
+                                        @listMuonTra.ElementAt(i).SACH_MUON.ElementAt(j).GIA_HAN
+                                    </td>
+                                    <td>
+                                        @if (listMuonTra.ElementAt(i).SACH_MUON.ElementAt(j).GIA_HAN >= chinhSach.SO_LAN_DUOC_GIA_HAN)
+                                        {
+                                            <p>không được gia hạn</p>
+                                        }
+                                        else
+                                        {
+            
+                                            @Html.ActionLink("Yêu cầu gia hạn", "DocGiaGiaHan", new { maMuon = listMuonTra.ElementAt(i).MA_MUON_TRA, maSach = listMuonTra.ElementAt(i).SACH_MUON.ElementAt(j).MA_SACH})
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        }
+
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

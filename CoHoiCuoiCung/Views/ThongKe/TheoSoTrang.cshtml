@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Thống kê sách theo số trang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thống kê sách theo số trang</h2>
+<pre>Nếu muốn thống kê những sách có số trang chính xác thì chỉ cần nhập dữ liệu vào từ số trang</pre>
+<form action="ThongKeTheoSoTrang" method="post">
+    Từ số trang
+    <input type="number" name="tuTrang" class="form-control" /><br />
+    Đến số trang
+    <input type="number" name="denTrang" class="form-control" /><br />
+    <input type="submit" value="Thống kê" class="btn btn-default form-control" />
+</form>
+

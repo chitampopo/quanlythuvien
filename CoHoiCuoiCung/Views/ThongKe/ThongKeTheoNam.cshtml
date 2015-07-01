@@ -1,0 +1,56 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.CUON_SACH>
+@{
+    ViewBag.Title = "Thống kê sách theo năm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int i = 1;
+    int tuNam = (int)ViewBag.tuNam;
+    int denNam = (int)ViewBag.denNam;
+    DateTime ngayThongKe = new DateTime();
+    ngayThongKe = DateTime.Now;
+}
+<center>
+    @if (tuNam == denNam)
+    {
+        <h2>Thống kê theo năm @tuNam<br />Ngày thống kê @ngayThongKe.ToString("dd/MM/yyyy")</h2>
+    }
+    else
+    {
+        <h2>Thống kê theo từ @tuNam đến năm @denNam<br />Ngày thống kê @ngayThongKe.ToString("dd/MM/yyyy")</h2>
+    }
+    
+</center>
+
+<table class="table table-responsive">
+    <tr>
+        <th>STT</th>
+        <th>Tên sách</th>
+        <th>Nhà xuất bản</th>
+        <th>Số lượng sách</th>
+        <th>Năm xuất bản</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.Raw(i++)
+            </td>
+            <td>
+                @item.TEN_SACH
+            </td>
+            <td>
+                @item.DAU_SACH.NHA_XUAT_BAN.TEN_NXB
+            </td>
+            <td>
+                @item.SO_LUONG
+            </td>
+            <td>
+                @item.NAM_XUAT_BAN
+            </td>
+        </tr>
+    }
+    <tr>
+        <td>
+            @ViewBag.thongBao
+        </td>
+    </tr>
+</table>

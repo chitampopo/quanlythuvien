@@ -1,0 +1,27 @@
+﻿@{
+    List<string> listQSD = (List<string>)ViewBag.listQSD;   
+    List<string> listMenu = new List<string>();
+    listMenu.Add("nhanvien");
+    listMenu.Add("docgia");
+    listMenu.Add("danhmuc");
+    listMenu.Add("muontrasach");
+    listMenu.Add("sach");
+    listMenu.Add("thongke");
+}
+@foreach (var item in listMenu)
+{
+    bool flag = false;
+    foreach (var item1 in listQSD)
+    {
+        if (item1 == item)
+        {
+            flag = true;
+        }
+    }
+    if (flag == false)
+    {
+        <script>
+            $("#@item").remove();
+        </script>
+    }
+}

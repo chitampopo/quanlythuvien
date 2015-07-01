@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Thống kê sách theo năm xuất bản";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thống kê sách theo năm xuất bản</h2>
+<pre>Nếu chỉ thống kê 1 năm nào đó thì chỉ cần nhập dữ liệu vào ô từ năm</pre>
+<form action="ThongKeTheoNam" method="post">
+    Từ năm
+    <input type="number" name="tuNam" class="form-control" /><br />
+    Đến năm
+    <input type="number" name="denNam" class="form-control" /><br />
+    <input type="submit" value="Thống kê" class="btn btn-default form-control" />
+</form>
+
+

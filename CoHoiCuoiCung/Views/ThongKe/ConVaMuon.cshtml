@@ -1,0 +1,95 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.QuanLyThuVienEntities1>
+@{
+    ViewBag.Title = "ConVaMuon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<CoHoiCuoiCung.Models.CUON_SACH> listSach = (List<CoHoiCuoiCung.Models.CUON_SACH>)ViewData["listSach"];
+    List<int> listSLMuon = (List<int>)ViewData["listSLMuon"];
+}
+<center>
+    <h2>Số lượng sách trong kho và đã được mượn</h2>
+    <h3>Thời gian @DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")  </h3>
+</center>
+<script>
+        @{
+            int soLuongSach = (int)@ViewBag.soLuongSach;
+            int soLuongSachMuon = (int)@ViewBag.soLuongSachMuon;
+        }
+</script>
+<script type="text/javascript">
+    window.onload = function () {
+        var chart = new CanvasJS.Chart("chartContainer",
+        {
+            title: {
+                text: "Thống kê số lượng sách trong kho và đã được mượn"
+            },
+            legend: {
+                maxWidth: 350,
+                itemWidth: 120
+            },
+            data: [
+            {
+                type: "pie",
+                showInLegend: true,
+                legendText: "{indexLabel}",
+                dataPoints: [
+                    { y: @soLuongSach, indexLabel: "Trong kho" },
+                    { y: @soLuongSachMuon, indexLabel: "Đã mượn" }
+                ]
+            }
+            ]
+        });
+        chart.render();
+    }
+</script>
+
+<script>
+    $(document).ready(function(){
+        $("button").click(function(){
+            $("#canvas-holder").toggle("slow");
+        });
+    });
+</script>
+<table class="table table-responsive">
+    <tr>
+        <th>STT</th>
+        <th>Tên sách</th>
+        <th>Trong kho</th>
+        <th>Đã mượn</th>
+        <th>Tổng cộng</th>
+    </tr>
+    @for (int i = 0; i < listSach.Count;i++ )
+    {
+        <tr>
+            <td>
+                @Html.Raw(i + 1)
+            </td>
+            <td>
+                @listSach[i].TEN_SACH
+            </td>
+            <td>
+                @listSach[i].SO_LUONG
+            </td>
+            <td>
+               @listSLMuon[i]
+            </td>
+            <td>
+                @Html.Raw(listSach[i].SO_LUONG+listSLMuon[i])
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="2">
+            Tổng cộng
+        </td>
+        <td>
+            @soLuongSach
+        </td>
+        <td>
+            @soLuongSachMuon
+        </td>
+        <td>
+            @Html.Raw(soLuongSach+soLuongSachMuon)
+        </td>
+    </tr>
+</table>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>

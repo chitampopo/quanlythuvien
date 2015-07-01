@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a470007901b14cb18a5a1354b8d19206" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="QuanLyThuVienModel.CHINH_SACH_LUU_THONG" Width="1.5" PointX="13.375" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.CHUC_VU" Width="1.5" PointX="5.25" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.CUON_SACH" Width="1.5" PointX="5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.DAU_SACH" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.DOC_GIA" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.DOI_TUONG" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.GIU_CHUC_VU" Width="1.5" PointX="7.5" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.KE_SACH" Width="1.5" PointX="8.625" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.KHU_VUC" Width="1.5" PointX="6" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.LOAI_SACH" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.LY_DO_PHAT" Width="1.5" PointX="10.875" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.MUON_TRA_SACH" Width="2.125" PointX="9.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.NGON_NGU" Width="1.5" PointX="0.875" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.NHA_XUAT_BAN" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.NHAN_VIEN" Width="1.5" PointX="5.25" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.PHAT" Width="1.5" PointX="8.125" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.TAC_GIA" Width="1.5" PointX="5.5" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.TAI_KHOAN" Width="1.5" PointX="10.5" PointY="15.125" IsExpanded="true" />
+        <AssociationConnector Association="QuanLyThuVienModel.FK_MUON_TRA_CO_CHINH__CHINH_SA" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="QuanLyThuVienModel.FK_GIU_CHUC_GIU_CHUC__CHUC_VU" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyThuVienModel.FK_CUON_SAC_DAU_SACH__DAU_SACH" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyThuVienModel.FK_PHAT_SACH_PHAT_CUON_SAC" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyThuVienModel.FK_DAU_SACH_CO_NGON_N_NGON_NGU" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyThuVienModel.FK_DAU_SACH_DAU_SACH__NHA_XUAT" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyThuVienModel.FK_DAU_SACH_LOAI_SACH_LOAI_SAC" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyThuVienModel.FK_DOC_GIA_DOC_GIA_T_DOI_TUON" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyThuVienModel.FK_MUON_TRA_DOC_GIA_M_DOC_GIA" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyThuVienModel.FK_TAI_KHOA_CO_TAI_KH_DOC_GIA" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyThuVienModel.FK_GIU_CHUC_NHAN_VIEN_NHAN_VIE" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyThuVienModel.FK_KE_SACH_KHU_VUC_C_KHU_VUC" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyThuVienModel.FK_PHAT_PHAT_VOI__LY_DO_PH" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyThuVienModel.FK_MUON_TRA_NGUOI_LAP_NHAN_VIE" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyThuVienModel.FK_PHAT_BI_PHAT_MUON_TRA" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyThuVienModel.FK_TAI_KHOA_NHAN_VIEN_NHAN_VIE" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyThuVienModel.DAU_SACH_CUA_TAC_GIA" ManuallyRouted="true" >
+          <ConnectorPoint PointX="3.3437475" PointY="8.6340950520833317" />
+          <ConnectorPoint PointX="3.3437475" PointY="10.6967626953125" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="10.6967626953125" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="10.6967626953125" />
+          <ConnectorPoint PointX="5.5" PointY="10.6967626953125" />
+        </AssociationConnector>
+        <AssociationConnector Association="QuanLyThuVienModel.KE_SACH_CO_DAU_SACH" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.SACH_MUON" Width="1.5" PointX="7.125" PointY="4.125" />
+        <AssociationConnector Association="QuanLyThuVienModel.FK_SACH_MUO_SACH_DUOC_CUON_SAC" />
+        <AssociationConnector Association="QuanLyThuVienModel.FK_SACH_MUO_MUON_NHUN_MUON_TRA" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.CUNG_CAP_SACH" Width="1.5" PointX="8.25" PointY="0.75" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.NHA_CUNG_CAP" Width="1.5" PointX="6" PointY="31" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.QUYEN" Width="1.5" PointX="5.25" PointY="27.875" />
+        <EntityTypeShape EntityType="QuanLyThuVienModel.QUYEN_SD" Width="1.5" PointX="7.5" PointY="24.625" />
+        <AssociationConnector Association="QuanLyThuVienModel.FK_QUYEN_SD_CHUC_VU" />
+        <AssociationConnector Association="QuanLyThuVienModel.FK_CUNG_CAP_SACH_CUON_SACH" />
+        <AssociationConnector Association="QuanLyThuVienModel.FK_CUNG_CAP_SACH_NHA_CUNG_CAP" />
+        <AssociationConnector Association="QuanLyThuVienModel.FK_QUYEN_SD_QUYEN" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

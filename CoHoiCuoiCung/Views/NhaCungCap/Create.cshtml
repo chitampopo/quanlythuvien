@@ -1,0 +1,36 @@
+﻿@model CoHoiCuoiCung.Models.NHA_CUNG_CAP
+
+@{
+    ViewBag.Title = "Thêm nhà cung cấp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thêm nhà cung cấp</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TEN_NCC, "Tên nhà cung cấp", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.TEN_NCC, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.TEN_NCC)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm" class="btn btn-default form-control" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Quay lại", "Index")
+</div>

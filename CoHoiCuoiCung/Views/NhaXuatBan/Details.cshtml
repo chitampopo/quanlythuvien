@@ -1,0 +1,27 @@
+﻿@model CoHoiCuoiCung.Models.NHA_XUAT_BAN
+
+@{
+    ViewBag.Title = "Chi tiết";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NHA_XUAT_BAN</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TEN_NXB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_NXB)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.MA_NXB }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>

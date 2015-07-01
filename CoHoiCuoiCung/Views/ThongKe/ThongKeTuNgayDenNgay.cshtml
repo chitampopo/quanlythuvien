@@ -1,0 +1,59 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.MUON_TRA_SACH>
+@{
+    ViewBag.Title = "ThongKeTuNgayDenNgay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<CoHoiCuoiCung.Models.MUON_TRA_SACH> listMuonTra = (List<CoHoiCuoiCung.Models.MUON_TRA_SACH>)ViewData["listSachMuon"];
+    List<CoHoiCuoiCung.Models.CUON_SACH> listSach = (List<CoHoiCuoiCung.Models.CUON_SACH>)ViewData["listSach"];
+    List<int> listSLMuon = (List<int>)ViewData["soLuongMuon"];
+    List<int> listSLTra = (List<int>)ViewData["soLuongTra"];
+    int soLuongMuon = 0;
+    int soLuongTra = 0;
+    DateTime tuNgayDT = (DateTime)ViewData["tuNgay"];
+    DateTime denNgayDT = (DateTime)ViewData["denNgay"];
+    
+}
+
+<center><h2>Thống kê mượn trả <br />Từ @tuNgayDT.ToString("dd/MM/yyyy") đến @denNgayDT.ToString("dd/MM/yyyy")</h2></center>
+<br />
+<table class="table table-responsive">
+    <tr>
+        <th>STT</th>
+        <th>Tên sách</th>
+        <th>Số lượng mượn</th>
+        <th>Số lượng trả</th>
+    </tr>
+    @for (int i = 0; i < listSach.Count; i++)
+    {
+        <tr>
+            <td>
+                @Html.Raw(i + 1)
+            </td>
+            <td>
+                @listSach[i].TEN_SACH
+            </td>
+            <td>
+                @listSLMuon[i]
+                @{
+        soLuongMuon += listSLMuon[i];
+                }
+            </td>
+            <td>
+                @listSLTra[i]
+                @{
+        soLuongTra += listSLTra[i];
+                }
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="2">
+            Tổng cộng
+        </td>
+        <td>
+            @soLuongMuon
+        </td>
+        <td>
+            @soLuongTra
+        </td>
+    </tr>
+</table>

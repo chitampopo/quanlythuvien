@@ -1,0 +1,49 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.CUNG_CAP_SACH>
+
+@{
+    ViewBag.Title = "Cung cấp sách";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cung cấp sách</h2>
+
+<p>
+    @Html.ActionLink("Thêm thông tin cung cấp sách", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Thời gian
+        </th>
+        <th>
+            Số lượng sách
+        </th>
+        <th>
+            Tên sách
+        </th>
+        <th>
+            Tên nhà cung cấp
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.THOI_GIAN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SOLUONG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CUON_SACH.TEN_SACH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NHA_CUNG_CAP.TEN_NCC)
+        </td>
+        <td>
+        </td>
+    </tr>
+}
+
+</table>

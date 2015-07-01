@@ -1,0 +1,19 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.CUON_SACH>
+@{
+    ViewBag.Title = "Xem trạng thái của 1 quyển sách";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xem trạng thái của sách</h2>
+
+<form action="XemTrangThaiSach" method="post">
+    Chọn sách
+    <select name="maSach" class="form-control">
+        @foreach (var item in Model)
+        {
+            <option value="@item.MA_SACH">@item.TEN_SACH</option>
+        }
+    </select>
+    <input type="submit" value="Thống kê" class="btn btn-default form-control" />
+</form>
+

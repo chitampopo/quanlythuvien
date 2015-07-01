@@ -1,0 +1,50 @@
+﻿@model CoHoiCuoiCung.Models.CHINH_SACH_LUU_THONG
+
+@{
+    ViewBag.Title = "Chi tiết";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xem chi tiết</h2>
+
+<div>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Số sách được mượn tối đa
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SO_SACH_MUON_TOI_DA)
+        </dd>
+
+        <dt>
+            Số ngày mượn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SO_NGAY_MUON)
+        </dd>
+
+        <dt>
+            Số lần được gia hạn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SO_LAN_DUOC_GIA_HAN)
+        </dd>
+
+        <dt>
+            Số ngày gia hạn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SO_NGAY_GIA_HAN)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.MA_CHINH_SACH }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>

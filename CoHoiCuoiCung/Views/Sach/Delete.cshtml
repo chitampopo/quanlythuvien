@@ -1,0 +1,65 @@
+﻿@model CoHoiCuoiCung.Models.CUON_SACH
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CUON_SACH</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GIA_SACH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIA_SACH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TEN_SACH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_SACH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SO_TRANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SO_TRANG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GHI_CHU_SACH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GHI_CHU_SACH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DAU_SACH.TEN_DAU_SACH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DAU_SACH.TEN_DAU_SACH)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại", "Index")
+        </div>
+    }
+</div>

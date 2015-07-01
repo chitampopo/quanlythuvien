@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "TuNgayDenNgay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TuNgayDenNgay</h2>
+
+<form action="/ThongKe/ThongKeTuNgayDenNgay" method="post">
+    <div class="span5 col-md-5" id="sandbox-container">
+        Từ ngày: <input type="text" id="date" name="tuNgay" class="form-control datepicker"><br />
+        Đến ngày: <input type="text" id="date" name="denNgay" class="form-control datepicker"><br />
+        <input type="submit" value="Thống kê" class="form-control" />
+    </div>
+</form>

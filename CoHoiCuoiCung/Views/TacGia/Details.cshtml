@@ -1,0 +1,27 @@
+﻿@model CoHoiCuoiCung.Models.TAC_GIA
+
+@{
+    ViewBag.Title = "Chi tiết";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TAC_GIA</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TEN_TAC_GIA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_TAC_GIA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.MA_TAC_GIA }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>

@@ -1,0 +1,51 @@
+﻿@model CoHoiCuoiCung.Models.TAI_KHOAN
+
+@{
+    ViewBag.Title = "Chi tiết";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TAI_KHOAN</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TEN_TAI_KHOAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_TAI_KHOAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MAT_KHAU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAT_KHAU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOC_GIA.TEN_DOC_GIA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOC_GIA.TEN_DOC_GIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NHAN_VIEN.TEN_NHAN_VIEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHAN_VIEN.TEN_NHAN_VIEN)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.MA_TAI_KHOAN }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>

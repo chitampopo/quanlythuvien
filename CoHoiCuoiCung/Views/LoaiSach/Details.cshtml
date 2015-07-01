@@ -1,0 +1,26 @@
+﻿@model CoHoiCuoiCung.Models.LOAI_SACH
+
+@{
+    ViewBag.Title = "Chi tiết";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thông tin chi tiết</h2>
+
+<div>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên loại sách
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_LOAI_SACH)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.MA_LOAI_SACH }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>

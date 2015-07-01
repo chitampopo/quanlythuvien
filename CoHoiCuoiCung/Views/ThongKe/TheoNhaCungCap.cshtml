@@ -1,0 +1,19 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.NHA_CUNG_CAP>
+@{
+    ViewBag.Title = "Thống kê theo nhà cung cấp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thống kê sách theo nhà cung cấp</h2>
+
+<form action="ThongKeTheoNhaCungCap" method="post">
+    Chọn nhà cung cấp
+    <select name="maNCC" class="form-control">
+        @foreach (var item in Model)
+        {
+            <option value="@item.MA_NCC">@item.TEN_NCC</option>
+        }
+    </select>
+    <input type="submit" value="Thống kê" class="btn btn-default form-control" />
+</form>
+

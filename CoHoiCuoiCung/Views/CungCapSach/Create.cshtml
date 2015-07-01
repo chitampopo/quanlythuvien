@@ -1,0 +1,61 @@
+﻿@model CoHoiCuoiCung.Models.CUNG_CAP_SACH
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thông tin nhập sách</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MA_NCC, "Nhà cung cấp", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MA_NCC", null, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.MA_NCC)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MA_SACH, "Sách", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MA_SACH", null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MA_SACH)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.THOI_GIAN, "Thời gian nhập sách", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.THOI_GIAN, new { @class = "form-control datepicker"})
+                @Html.ValidationMessageFor(model => model.THOI_GIAN)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SOLUONG, "Số lượng nhập", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.SOLUONG, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SOLUONG)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-default form-control" />
+            </div>
+        </div>
+    </div>
+    
+}
+
+<div>
+    @Html.ActionLink("Quay lại", "Index")
+</div>

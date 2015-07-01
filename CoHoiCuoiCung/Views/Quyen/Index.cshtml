@@ -1,0 +1,32 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.QUYEN>
+
+@{
+    ViewBag.Title = "Quyền truy cập";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Quyền truy cập</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới quyền truy cập", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên quyền truy cập
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEN_QUYEN)
+        </td>
+        <td>
+            @Html.ActionLink("Cập nhật", "Edit", new { id=item.MA_QUYEN })
+        </td>
+    </tr>
+}
+
+</table>

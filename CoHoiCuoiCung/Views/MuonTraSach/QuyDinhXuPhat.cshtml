@@ -1,0 +1,12 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.LY_DO_PHAT>
+@{
+    ViewBag.Title = "QuyDinhXuPhat";
+    Layout = "~/Views/Shared/_LayoutDocGia.cshtml";
+}
+
+<h2>Quy định xử phạt</h2>
+
+@foreach (var item in Model)
+{
+    <pre>@item.LY_DO_PHAT1  phạt @item.SO_TIEN_PHAT @item.GHI_CHU_PHAT</pre><br />
+}

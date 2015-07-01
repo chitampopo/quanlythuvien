@@ -1,0 +1,30 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.CUON_SACH>
+
+
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @item.TEN_SACH
+        </td>
+        <td>
+            @item.SO_TRANG
+        </td>
+        <td>
+            @item.SO_LUONG
+        </td>
+        <td>
+            <div>
+                <img id="@item.MA_SACH" />
+                <script>$("#@item.MA_SACH").JsBarcode("S.@item.MA_SACH", { displayValue: true, height: 20 });</script>
+            </div>
+        </td>
+        <td>
+            <input type="number" name="SL @item.MA_SACH" class="form-control" style="width: 100px" value="@item.SO_LUONG"/>
+        </td>
+        <td>
+            <input type="checkbox" name="@item.MA_SACH" />
+        </td>
+    </tr>
+}

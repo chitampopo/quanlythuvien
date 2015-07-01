@@ -1,0 +1,32 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.NHA_CUNG_CAP>
+
+@{
+    ViewBag.Title = "Nhà cung cấp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Nhà cung cấp</h2>
+
+<p>
+    @Html.ActionLink("Thêm nhà cung cấp", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên nhà cung cấp
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEN_NCC)
+        </td>
+        <td>
+            @Html.ActionLink("Cập nhật", "Edit", new { id=item.MA_NCC })
+        </td>
+    </tr>
+}
+
+</table>

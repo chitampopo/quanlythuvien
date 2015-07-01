@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.KHU_VUC>
+
+@{
+    ViewBag.Title = "Trang quản lý khu vực";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Trang quản lý khu vực</h2>
+
+<p>
+    @Html.ActionLink("Thêm khu vực", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Tên khu vực")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEN_KHU_VUC)
+        </td>
+        <td>
+            @Html.ActionLink("Cập nhật", "Edit", new { id=item.MA_KHU_VUC })
+    </tr>
+}
+
+</table>

@@ -1,0 +1,14 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.DOC_GIA>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.TEN_DOC_GIA</td>
+        <td>@item.DIA_CHI_DOC_GIA</td>
+        <td>@item.SDT_DOC_GIA</td>
+        <td>@item.NGAY_THAM_GIA</td>
+        <td>@item.NGAY_HET_HAN</td>
+        <td>@Html.ActionLink("Trả sách", "TrangTraSach" + "/" + item.MA_DOC_GIA, "MuonTraSach")</td>
+    </tr>
+}
+

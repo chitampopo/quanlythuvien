@@ -1,0 +1,51 @@
+﻿@model CoHoiCuoiCung.Models.GIU_CHUC_VU
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GIU_CHUC_VU</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAY_BAT_DAU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAY_BAT_DAU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAY_KET_THUC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAY_KET_THUC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CHUC_VU.TEN_CHUC_VU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHUC_VU.TEN_CHUC_VU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NHAN_VIEN.TEN_NHAN_VIEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHAN_VIEN.TEN_NHAN_VIEN)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

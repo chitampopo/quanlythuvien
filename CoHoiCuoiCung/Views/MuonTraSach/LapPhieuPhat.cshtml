@@ -1,0 +1,172 @@
+﻿@{
+    Layout = null;
+    List<int> listMaSach = (List<int>)ViewData["listMaSach"];
+    List<int> listSoNgayTre = (List<int>)ViewData["listSoNgayTre"];
+    List<int> listGiaSach = (List<int>)ViewData["listGiaSach"];
+    List<bool> listMatSach = (List<bool>)ViewData["listMatSach"];
+    List<string> listTenSach = (List<string>)ViewData["listTenSach"];
+    int phatTreHan = (int) ViewData["phatTreHan"];
+    int phatMatSach = (int) ViewData["phatMatSach"];
+    int stt = 1;
+    int tongCong = 0;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LapPhieuPhat</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <center><h3>Phiếu nộp tiền</h3></center>
+
+        <table style="width:800px; margin: 0 auto">
+            <tr>
+                <td>
+                    <label>Người lập phiếu:</label>
+                </td>
+                <td>
+                    @ViewBag.tenNhanVien
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Người nộp:</label>
+                </td>
+                <td>
+                    @ViewBag.tenDocGia
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Địa chỉ:</label>
+                </td>
+                <td>
+                    @ViewBag.diaChiDocGia
+                </td>
+            </tr>
+        </table>
+        <br />
+        <table class="table tab-content" style="width:800px; margin: 0 auto">
+            <tr>
+                <th>STT</th>
+                <th>Nội dung</th>
+                <th>Hình thức</th>
+                <th>Số tiền</th>
+            </tr>
+            @for (int i = 0; i < listMaSach.Count; i++)
+            {
+                //Nếu không mất sách mà chỉ trể hạn trả sách
+                //thì phạt 2k trên 1 ngày / 1 cuốn
+                if (listMatSach.ElementAt(i).Equals(false) && listSoNgayTre.ElementAt(i) > 0)
+                {
+                    int soTienPhat = phatTreHan * @listSoNgayTre.ElementAt(i);
+                    <tr>
+                        <td>@stt</td>
+                        @{
+                            stt += 1;
+                        }
+                        <td>Trả sách @listTenSach.ElementAt(i) trễ @listSoNgayTre.ElementAt(i) ngày</td>
+                        <td>@phatTreHan VNĐ 1 ngày</td>
+                        <td>@Html.FormatValue(@soTienPhat, "{0:### ###}") VNĐ</td>
+                        @{
+                            tongCong += @soTienPhat;
+                        }
+                    </tr>
+                }
+                //Nếu mất sách và trễ hạn
+                //thì phạt 2k 1 ngày trễ và gấp 2 lần giá sách bị mất
+                else if (listMatSach.ElementAt(i).Equals(true) && listSoNgayTre.ElementAt(i) > 0)
+                {
+                    int soTienPhat = phatTreHan * @listSoNgayTre.ElementAt(i);
+                    <tr>
+                        <td>@stt</td>
+                        @{
+                    stt += 1;
+                        }
+                        <td>Trả sách @listTenSach.ElementAt(i) trễ @listSoNgayTre.ElementAt(i) ngày</td>
+                        <td>@phatTreHan VNĐ 1 ngày</td>
+                        <td>@Html.FormatValue(@soTienPhat, "{0:### ###}")
+                          VNĐ</td>
+                        @{
+                    tongCong += @soTienPhat;
+                        }
+                    </tr>
+                    <tr>
+                        <td>@stt</td>
+                        @{
+                    stt += 1;
+                        }
+                        <td>Mất sách @listTenSach.ElementAt(i)</td>
+                        @{
+                        int giaMatSach = listGiaSach.ElementAt(i) * phatMatSach;
+                        }
+                        <td>Gấp @phatMatSach giá sách</td>
+                        <td>
+                            @Html.FormatValue(@giaMatSach, "{0:### ###}") VNĐ
+                        </td>
+                        @{
+                    tongCong += giaMatSach;
+                        }
+                    </tr>
+                }
+                else if (listMatSach.ElementAt(i).Equals(true) && listSoNgayTre.ElementAt(i) == 0)
+                {
+                    <tr>
+                        <td>@stt</td>
+                        @{
+                    stt += 1;
+                        }
+                        <td>Mất sách @listTenSach.ElementAt(i)</td>
+                        @{
+                    int giaMatSach = listGiaSach.ElementAt(i) * phatMatSach;
+                        }
+                        <td>Gấp @phatMatSach giá sách</td>
+                        <td>@Html.FormatValue(giaMatSach, "{0:### ###}")  VNĐ</td>
+                        @{
+                    tongCong += giaMatSach;
+                        }
+                    </tr>
+                }
+
+            }
+            <tr>
+                <td colspan="3" style="text-align:right">Tổng cộng</td>
+                <td>@Html.FormatValue(@tongCong, "{0:### ###}") VNĐ</td>
+            </tr>
+        </table>
+        <br />
+        <table style="width:800px; margin: 0 auto; text-align: center">
+            <tr>
+                <td>
+                    <label>Người lập phiếu</label>
+                </td>
+                <td>
+                    <label>Người nộp</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    (Ký và ghi rõ họ tên)
+                </td>
+                <td>
+                    (Ký và ghi rõ họ tên)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                  
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
+</body>
+</html>

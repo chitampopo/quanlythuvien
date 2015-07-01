@@ -1,0 +1,61 @@
+﻿@model CoHoiCuoiCung.Models.SACH_MUON
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>SACH_MUON</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MA_SACH, "MA_SACH", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MA_SACH", String.Empty)
+                @Html.ValidationMessageFor(model => model.MA_SACH)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MA_MUON_TRA, "MA_MUON_TRA", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MA_MUON_TRA", String.Empty)
+                @Html.ValidationMessageFor(model => model.MA_MUON_TRA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NGAY_PHAI_TRA, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NGAY_PHAI_TRA)
+                @Html.ValidationMessageFor(model => model.NGAY_PHAI_TRA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DA_TRA, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DA_TRA)
+                @Html.ValidationMessageFor(model => model.DA_TRA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm" class="btn btn-default form-control" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Quay lại", "Index")
+</div>

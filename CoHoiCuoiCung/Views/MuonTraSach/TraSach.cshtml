@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "TraSach";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Trả sách</h2>
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">Danh sách độc giả</h3>
+    </div><!-- /.box-header -->
+    <div class="box-body">
+        <table id="example1" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Tên độc giả</th>
+                    <th>Địa chỉ</th>
+                    <th>Số điện thoại</th>
+                    <th>Ngày tham gia</th>
+                    <th>Ngày hết hạn</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @Html.Action("LietKeDocGia1", "DocGia")
+            </tbody>
+        </table>
+    </div><!-- /.box-body -->
+</div><!-- /.box -->

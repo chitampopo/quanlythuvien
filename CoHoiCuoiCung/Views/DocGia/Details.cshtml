@@ -1,0 +1,82 @@
+﻿@model CoHoiCuoiCung.Models.DOC_GIA
+
+@{
+    ViewBag.Title = "Chi tiết";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thông tin chi tiết về độc giả</h2>
+
+<div>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Tên độc giả")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_DOC_GIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Số CMND")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CMND)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Số điện thoại")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT_DOC_GIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Địa chỉ")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIA_CHI_DOC_GIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Địa chỉ email")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Ngày tham gia")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAY_THAM_GIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Ngày hết hạn")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAY_HET_HAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Đối tượng")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOI_TUONG.TEN_DOI_TUONG)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.MA_DOC_GIA }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>

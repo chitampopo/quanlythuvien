@@ -1,0 +1,27 @@
+﻿@model CoHoiCuoiCung.Models.CHUC_VU
+
+@{
+    ViewBag.Title = "Chi tiết";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CHUC_VU</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TEN_CHUC_VU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_CHUC_VU)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.MA_CHUC_VU }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>

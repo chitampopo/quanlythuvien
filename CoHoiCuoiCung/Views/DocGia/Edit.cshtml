@@ -1,0 +1,93 @@
+﻿@model CoHoiCuoiCung.Models.DOC_GIA
+
+@{
+    ViewBag.Title = "Cập nhật";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chỉnh sửa thông tin</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.MA_DOC_GIA)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MA_DOI_TUONG, "Đối tượng", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MA_DOI_TUONG", String.Empty)
+                @Html.ValidationMessageFor(model => model.MA_DOI_TUONG)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TEN_DOC_GIA, "Tên độc giả", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TEN_DOC_GIA)
+                @Html.ValidationMessageFor(model => model.TEN_DOC_GIA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CMND, "Số CMND", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CMND)
+                @Html.ValidationMessageFor(model => model.CMND)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SDT_DOC_GIA, "Số điện thoại",  new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SDT_DOC_GIA)
+                @Html.ValidationMessageFor(model => model.SDT_DOC_GIA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DIA_CHI_DOC_GIA, "Địa chỉ", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DIA_CHI_DOC_GIA)
+                @Html.ValidationMessageFor(model => model.DIA_CHI_DOC_GIA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EMAIL, "Địa chỉ email",  new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EMAIL)
+                @Html.ValidationMessageFor(model => model.EMAIL)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NGAY_THAM_GIA, "Ngày tham gia", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NGAY_THAM_GIA)
+                @Html.ValidationMessageFor(model => model.NGAY_THAM_GIA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NGAY_HET_HAN, "Ngày hết hạn", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NGAY_HET_HAN)
+                @Html.ValidationMessageFor(model => model.NGAY_HET_HAN)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu lại" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Quay lại", "Index")
+</div>

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.CUON_SACH>
+
+@{
+    ViewBag.Title = "Quản lý sách";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Trang quản lý sách</h2>
+
+<p>
+    @Html.ActionLink("Thêm sách mới", "Create")
+    <br />
+    @Html.ActionLink("Thêm sách từ nhà cung cấp", "Index", "CungCapSach")
+</p>
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">Danh sách độc giả</h3>
+    </div><!-- /.box-header -->
+    <div class="box-body">
+        <table id="example1" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        Tên sách
+                    </th>
+                    <th>
+                        Năm xuất bản
+                    </th>
+                    <th>
+                        Mã vạch
+                    </th>
+                    <th>
+                        Giá sách
+                    </th>
+                    <th>
+                        Số Trang
+                    </th>
+                    <th>
+                        Tái bản
+                    </th>
+                    <th>
+                        Số lượng
+                    </th>
+                    <th>
+                        Ghi chú
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TEN_SACH)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NAM_XUAT_BAN)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MA_VACH)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GIA_SACH)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SO_TRANG)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TAI_BAN)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SO_LUONG)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GHI_CHU_SACH)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Cập nhật", "Edit", new { id = item.MA_SACH }) |
+                            @Html.ActionLink("Xem chi tiết", "Details", new { id = item.MA_SACH }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.MA_SACH })
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div><!-- /.box-body -->
+</div><!-- /.box -->

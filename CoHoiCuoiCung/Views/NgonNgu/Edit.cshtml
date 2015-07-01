@@ -1,0 +1,37 @@
+﻿@model CoHoiCuoiCung.Models.NGON_NGU
+
+@{
+    ViewBag.Title = "Cập nhật";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cập nhật ngôn ngữ</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.MA_NGON_NGU)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TEN_NGON_NGU, "Tên ngôn ngữ", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.TEN_NGON_NGU, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TEN_NGON_NGU)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-default form-control" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Quay lại", "Index")
+</div>

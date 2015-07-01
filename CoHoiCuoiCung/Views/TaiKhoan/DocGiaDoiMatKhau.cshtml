@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "DocGiaDoiMatKhau";
+    Layout = "~/Views/Shared/_LayoutDocGia.cshtml";
+}
+
+<h2>Đổi mật khẩu</h2>
+@ViewBag.thongBao
+<form action="/TaiKhoan/DoiMatKhau" method="post">
+    Mật khẩu cũ: <input type="password" class="form-control" name="matKhauCu" /><br />
+    Mật khẩu mới: <input type="password" class="form-control" name="matKhauMoi" /><br />
+    Nhập lại mật khẩu mới: <input type="password" class="form-control" name="xacNhan" /><br />
+    <input type="submit" value="Xác nhận" class="btn btn-default" />
+</form>

@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Chính sách lưu thông";
+    Layout = "~/Views/Shared/_LayoutDocGia.cshtml";
+    CoHoiCuoiCung.Models.CHINH_SACH_LUU_THONG chinhSach = (CoHoiCuoiCung.Models.CHINH_SACH_LUU_THONG)ViewData["chinhSach"];
+}
+
+<h2>Chính sách lưu thông</h2>
+
+
+<label>Số ngày được mượn:</label> @chinhSach.SO_NGAY_MUON ngày/cuốn<br />
+<label>Số sách được mượn tối đa:</label> @chinhSach.SO_SACH_MUON_TOI_DA cuốn<br />
+<label>Số lần gia hạn tối đa:</label> @chinhSach.SO_LAN_DUOC_GIA_HAN lần/cuốn<br />
+<label>Số ngày gia hạn:</label> @chinhSach.SO_NGAY_GIA_HAN ngày/lần<br />

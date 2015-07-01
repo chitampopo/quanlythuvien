@@ -1,0 +1,49 @@
+﻿@model CoHoiCuoiCung.Models.KE_SACH
+
+@{
+    ViewBag.Title = "Thêm mới kệ sách";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thêm kệ sách</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MA_KHU_VUC, "Khu vực", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MA_KHU_VUC", null, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.MA_KHU_VUC)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TEN_KE_SACH, "Tên kệ sách", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.TEN_KE_SACH, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.TEN_KE_SACH)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm" class="btn btn-default form-control" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Quay lại", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

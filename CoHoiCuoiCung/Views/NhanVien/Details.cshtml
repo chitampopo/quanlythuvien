@@ -1,0 +1,54 @@
+﻿@model CoHoiCuoiCung.Models.NHAN_VIEN
+
+@{
+    ViewBag.Title = "Thông tin nhân viên";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h4>Thông tin nhân viên</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Tên nhân viên")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_NHAN_VIEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Địa chỉ nhân viên")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIA_CHI_NHAN_VIEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Số điện thoại")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT_NHAN_VIEN)
+        </dd>
+        <dt>
+            @Html.DisplayName("Tên tài khoản")
+        </dt>
+
+        <dd>
+            @ViewData["tenTaiKhoan"]
+        </dd>
+        <dt>
+            @Html.DisplayName("Mật khẩu")
+        </dt>
+
+        <dd>
+            @ViewData["matKhau"]
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MA_NHAN_VIEN }) |
+    @Html.ActionLink("Trở lại danh sách nhân viên", "Index")
+</p>

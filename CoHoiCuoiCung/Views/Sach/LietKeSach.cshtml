@@ -1,0 +1,23 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.CUON_SACH>
+
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @item.TEN_SACH
+        </td>
+        <td>
+            @item.SO_TRANG
+        </td>
+        <td>
+            @item.GIA_SACH
+        </td>
+        <td>
+            @item.SO_LUONG
+        </td>
+        <td>
+            <input type="checkbox" name="@item.MA_SACH" />
+        </td>
+    </tr>
+}

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.MUON_TRA_SACH>
+@{
+    ViewBag.Title = "TrangTraSach";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Trả sách - Độc giả @ViewData["tenDocGia"]</h2>
+@ViewBag.baoLoi
+@foreach (var item in Model)
+{
+    int count = 0;
+    for (int i = 0; i < @item.SACH_MUON.Count; i++)
+    {
+        if (@item.SACH_MUON.ElementAt(i).DA_TRA == false)
+        {
+            count++;
+        }
+    }
+    if (count == 0)
+    {
+        continue;
+    }
+    else
+    {
+        <table class="table">
+            @for (int i = 0; i < @item.SACH_MUON.Count(); i++)
+            {
+                if (@item.SACH_MUON.ElementAt(i).DA_TRA == true)
+                {
+                    continue;
+                }
+
+                <tr>
+                    <td><label>Tên sách:</label></td>
+                    <td class="col-md-4">@item.SACH_MUON.ElementAt(i).CUON_SACH.TEN_SACH</td>
+                    <td><label> Ngày giờ mượn:</label></td>
+                    <td>@item.NGAY_GIO_LAP</td>
+                    <td><label>Ngày phải trả:</label></td>
+                    <td>@item.SACH_MUON.ElementAt(i).NGAY_PHAI_TRA</td>
+                    <td><label>Số lần gia hạn:</label></td>
+                    <td>@item.SACH_MUON.ElementAt(i).GIA_HAN</td>
+                    <td>
+                        @if (ViewBag.soLanGiaHanToiDa <= @item.SACH_MUON.ElementAt(i).GIA_HAN)
+                        {
+                            @Html.Raw("<a>Không được gia hạn</a>")
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Gia hạn", "GiaHan", new { maDocGia = @item.MA_DOC_GIA, maMuon = @item.MA_MUON_TRA, maSach = @item.SACH_MUON.ElementAt(i).MA_SACH }, "MuonTraSach")
+                        }
+                        |
+                        @Html.ActionLink("Trả", "TraSachMuon", new { maDocGia = @item.MA_DOC_GIA, maMuon = @item.MA_MUON_TRA, maSach = @item.SACH_MUON.ElementAt(i).MA_SACH }, "MuonTraSach")
+                    </td>
+                </tr>
+
+            }
+        </table>
+        @Html.ActionLink("Phạt", "TrangPhat", new { maDocGia = @item.MA_DOC_GIA, maMuon = @item.MA_MUON_TRA })
+        <hr />
+    }
+}

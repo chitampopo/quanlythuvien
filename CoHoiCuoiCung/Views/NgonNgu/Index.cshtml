@@ -1,0 +1,32 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.NGON_NGU>
+
+@{
+    ViewBag.Title = "Ngôn ngữ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ngôn ngữ</h2>
+
+<p>
+    @Html.ActionLink("Thêm ngôn ngữ", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Ngôn ngữ
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEN_NGON_NGU)
+        </td>
+        <td>
+            @Html.ActionLink("Cập nhật", "Edit", new { id=item.MA_NGON_NGU })
+        </td>
+    </tr>
+}
+
+</table>

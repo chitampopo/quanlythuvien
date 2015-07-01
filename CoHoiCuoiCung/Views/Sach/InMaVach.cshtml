@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.CUON_SACH>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>InMaVach</title>
+    <!-- Jquery-->
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <!-- Barcode -->
+    <script src="~/Scripts/Plugins/jsbarcode/JsBarcode.js"></script>
+    <script src="~/Scripts/Plugins/jsbarcode/CODE128.js"></script>
+    <script src="~/Scripts/Plugins/jsbarcode/EAN_UPC.js"></script>
+</head>
+<body>
+    <div>
+        @foreach (var item in Model)
+        {
+            if (@item.SO_LUONG == 0)
+            {
+                continue;
+            }
+            <p>Tên sách: @item.TEN_SACH</p>
+            for (int i = 0; i < @item.SO_LUONG; i++)
+            {
+                <img id="@item.MA_SACH@i" />
+                <script>$("#@item.MA_SACH@i").JsBarcode("S.@item.MA_SACH", { displayValue: true, height: 20 });</script>
+            }
+            <br />
+        }
+    </div>
+</body>
+</html>

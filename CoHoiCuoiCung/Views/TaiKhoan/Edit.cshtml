@@ -1,0 +1,67 @@
+﻿@model CoHoiCuoiCung.Models.TAI_KHOAN
+
+@{
+    ViewBag.Title = "Cập nhật";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>TAI_KHOAN</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.MA_TAI_KHOAN)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MA_NHAN_VIEN, "MA_NHAN_VIEN", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MA_NHAN_VIEN", String.Empty)
+                @Html.ValidationMessageFor(model => model.MA_NHAN_VIEN)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MA_DOC_GIA, "MA_DOC_GIA", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MA_DOC_GIA", String.Empty)
+                @Html.ValidationMessageFor(model => model.MA_DOC_GIA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TEN_TAI_KHOAN, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TEN_TAI_KHOAN)
+                @Html.ValidationMessageFor(model => model.TEN_TAI_KHOAN)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MAT_KHAU, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MAT_KHAU)
+                @Html.ValidationMessageFor(model => model.MAT_KHAU)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-default form-control" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Quay lại", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

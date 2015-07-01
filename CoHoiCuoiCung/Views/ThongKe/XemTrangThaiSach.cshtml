@@ -1,0 +1,49 @@
+﻿@using CoHoiCuoiCung.Models
+@{
+    ViewBag.Title = "XemTrangThaiSach";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    CUON_SACH sach = (CUON_SACH)ViewData["sach"];
+}
+
+<h2>Xem trạng thái sách @sach.TEN_SACH</h2>
+
+<dl class="dl-horizontal">
+    <dt>Ngôn ngữ</dt>
+    <dd>@sach.DAU_SACH.NGON_NGU.TEN_NGON_NGU</dd>
+    <dt>Tác giả, dịch giả</dt>
+    <dd>
+        @foreach (var item in @sach.DAU_SACH.TAC_GIA)
+        {
+            @item.TEN_TAC_GIA  @Html.Raw(" ")
+        }
+    </dd>
+    <dt>Năm xuất bản</dt>
+    <dd>@sach.NAM_XUAT_BAN</dd>
+    <dt>Tái bản</dt>
+    <dd>
+        @if (sach.TAI_BAN == 0)
+        {
+            @Html.Raw("Không")
+        } else{
+            @Html.Raw("Tái bản lần thứ " + sach.TAI_BAN)
+        }
+    </dd>
+    <dt>Số lượng sách trong kho</dt>
+    <dd>@sach.SO_LUONG</dd>
+    <dt>Số sách đang được mượn</dt>
+    <dd>@ViewData["soSachMuon"]</dd>
+    <dt>Mã vạch</dt>
+    <dd>@sach.MA_VACH</dd>
+    <dt>Giá sách</dt>
+    <dd>@sach.GIA_SACH</dd>
+    <dt>Đầu sách</dt>
+    <dd>@sach.DAU_SACH.TEN_DAU_SACH</dd>
+    <dt>Loại sách</dt>
+    <dd>@sach.DAU_SACH.LOAI_SACH.TEN_LOAI_SACH</dd>
+    <dt></dt>
+    <dd></dd>
+    <dt></dt>
+    <dd></dd>
+    <dt></dt>
+    <dd></dd>
+</dl>

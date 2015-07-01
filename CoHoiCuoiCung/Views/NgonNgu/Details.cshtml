@@ -1,0 +1,27 @@
+﻿@model CoHoiCuoiCung.Models.NGON_NGU
+
+@{
+    ViewBag.Title = "Chi tiết";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NGON_NGU</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TEN_NGON_NGU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_NGON_NGU)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.MA_NGON_NGU }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>

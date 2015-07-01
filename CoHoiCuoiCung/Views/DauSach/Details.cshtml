@@ -1,0 +1,51 @@
+﻿@model CoHoiCuoiCung.Models.DAU_SACH
+
+@{
+    ViewBag.Title = "Chi tiết";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DAU_SACH</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TEN_DAU_SACH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_DAU_SACH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGON_NGU.TEN_NGON_NGU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGON_NGU.TEN_NGON_NGU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NHA_XUAT_BAN.TEN_NXB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHA_XUAT_BAN.TEN_NXB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LOAI_SACH.TEN_LOAI_SACH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOAI_SACH.TEN_LOAI_SACH)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.MA_DAU_SACH }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>

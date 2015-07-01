@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.TAC_GIA>
+
+@{
+    ViewBag.Title = "Tác giả";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Quản lý tác giả</h2>
+<p>
+    @Html.ActionLink("Thêm tác giả", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên tác giả
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEN_TAC_GIA)
+        </td>
+        <td>
+            @Html.ActionLink("Cập nhật", "Edit", new { id=item.MA_TAC_GIA })
+        </td>
+    </tr>
+}
+
+</table>

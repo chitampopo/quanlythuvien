@@ -1,0 +1,185 @@
+﻿
+@{
+    ViewBag.Title = "Cập nhật các danh mục";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<br />
+<div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-aqua">
+        <div class="inner">
+            <h3>@ViewBag.soLuongChinhSach</h3>
+            <p>Chính sách lưu thông</p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-document-text"></i>
+        </div>
+        <a class="small-box-footer" href="/ChinhSachLuuThong/Index">Chi tiết</a>
+    </div>
+</div>
+<div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-green">
+        <div class="inner">
+            <h3>@ViewBag.soLuongKhuVuc</h3>
+            <p>Khu vực</p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-grid"></i>
+        </div>
+        <a class="small-box-footer" href="/KhuVuc/Index">Chi tiết</a>
+    </div>
+</div>
+<div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-yellow">
+        <div class="inner">
+            <h3>@ViewBag.soLuongKeSach</h3>
+            <p>Kệ sách</p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-ios-browsers-outline"></i>
+        </div>
+        <a class="small-box-footer" href="/KeSach/Index">Chi tiết</a>
+    </div>
+</div>
+<div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-blue">
+        <div class="inner">
+            <h3>@ViewBag.soLuongLoaiSach</h3>
+            <p>Loại sách</p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-ios-bookmarks-outline"></i>
+        </div>
+        <a class="small-box-footer" href="/LoaiSach/Index">Chi tiết</a>
+    </div>
+</div>
+<div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-aqua-active">
+        <div class="inner">
+            <h3>@ViewBag.soLuongDauSach</h3>
+            <p>Đầu sách</p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-android-bookmark"></i>
+        </div>
+        <a class="small-box-footer" href="/DauSach/Index">Chi tiết</a>
+</div>
+</div>
+<div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-green-active">
+        <div class="inner">
+            <h3>@ViewBag.soLuongTacGia</h3>
+            <p>Tác giả</p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-edit"></i>
+        </div>
+        <a class="small-box-footer" href="/TacGia/Index">Chi tiết</a>
+    </div>
+</div>
+<div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-yellow-active">
+        <div class="inner">
+            <h3>@ViewBag.soLuongNCC </h3>
+            <p>Nhà cung cấp</p>
+        </div>
+        <div class="icon">
+            <i class="ion-ios-home-outline"></i>
+        </div>
+        <a class="small-box-footer" href="/NhaCungCap/Index">Chi tiết</a>
+    </div>
+</div>
+<div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-blue-active">
+        <div class="inner">
+            <h3>@ViewBag.soLuongDoiTuong</h3>
+            <p>Đối tượng</p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-android-person"></i>
+        </div>
+        <a class="small-box-footer" href="/DoiTuong/Index">Chi tiết</a>
+    </div>
+</div>
+<div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-aqua-gradient">
+        <div class="inner">
+            <h3>@ViewBag.soLuongChucVu</h3>
+            <p>Chức vụ</p>
+        </div>
+        <div class="icon">
+            <i class="ion-ios-people-outline"></i>
+        </div>
+        <a class="small-box-footer" href="/ChucVu/Index">Chi tiết</a>
+    </div>
+</div>
+<div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-green-gradient">
+        <div class="inner">
+            <h3>@ViewBag.soLuongNXB </h3>
+            <p>Nhà xuất bản</p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-home"></i>
+        </div>
+        <a class="small-box-footer" href="/NhaXuatBan/Index">Chi tiết</a>
+    </div>
+</div>
+<div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-yellow-gradient">
+        <div class="inner">
+            <h3>@ViewBag.soLuongNgonNgu</h3>
+            <p>Ngôn ngữ</p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-chatbox-working"></i>
+        </div>
+        <a class="small-box-footer" href="/NgonNgu/Index">Chi tiết</a>
+    </div>
+</div>
+
+@*<div class="col-lg-3 col-xs-6">
+    <div class="small-box bg-blue-gradient">
+        <div class="inner">
+            <h3><br /></h3>
+            <p><br /></p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-ios-barcode"></i>
+        </div>
+        <a class="small-box-footer" href="/Sach/MaVach">In mã vạch</a>
+    </div>
+</div>*@
+
+
+<div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-blue-gradient">
+        <div class="inner">
+            <h3>@ViewBag.soLuongQuyen</h3>
+            <p>Quyền</p>
+        </div>
+        <div class="icon">
+            <i class="ion-person-stalker"></i>
+        </div>
+        <a class="small-box-footer" href="/Quyen/Index">Chi tiết</a>
+    </div>
+</div>
+
+
+
+
+
+

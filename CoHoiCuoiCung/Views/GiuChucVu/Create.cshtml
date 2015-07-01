@@ -1,0 +1,60 @@
+﻿@model CoHoiCuoiCung.Models.GIU_CHUC_VU
+
+@{
+    ViewBag.Title = "Thêm chức vụ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thêm nhân viên giữ chức vụ</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MA_NHAN_VIEN, "Nhân viên", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MA_NHAN_VIEN", null, new { @class="form-control"})
+                @Html.ValidationMessageFor(model => model.MA_NHAN_VIEN)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MA_CHUC_VU, "Chức vụ", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MA_CHUC_VU", null, new { @class="form-control"})
+                @Html.ValidationMessageFor(model => model.MA_CHUC_VU)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NGAY_BAT_DAU, "Ngày bắt đầu", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.NGAY_BAT_DAU, new { @class="form-control"})
+                @Html.ValidationMessageFor(model => model.NGAY_BAT_DAU)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NGAY_KET_THUC, "Ngày kết thúc", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.NGAY_KET_THUC, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.NGAY_KET_THUC)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm" class="btn btn-default form-control" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Quay lại", "Index")
+</div>

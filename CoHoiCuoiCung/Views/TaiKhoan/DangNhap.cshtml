@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+<style>
+    td{
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+</style>
+<div style="margin: 0 auto; width:300px">
+    <center><h2>Trang đăng nhập</h2></center>
+    <br />
+    @ViewBag.alert
+    <form action="/TaiKhoan/DangNhap" method="post">
+        <table>
+            <tr>
+                <td>
+                    <label>Tên tài khoản</label>
+                </td>
+                <td>
+                    <input type="text" name="tenTaiKhoan" class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Mật khẩu</label>
+                </td>
+                <td>
+                    <input type="password" name="matKhau" class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Đăng nhập" class="btn btn-primary"  />
+                </td>
+            </tr>
+            @ViewBag.thongBao
+        </table>
+    </form>
+</div>

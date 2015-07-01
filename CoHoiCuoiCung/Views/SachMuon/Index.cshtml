@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.SACH_MUON>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAY_PHAI_TRA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DA_TRA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CUON_SACH.TEN_SACH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MUON_TRA_SACH.MA_MUON_TRA)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAY_PHAI_TRA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DA_TRA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CUON_SACH.TEN_SACH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MUON_TRA_SACH.MA_MUON_TRA)
+        </td>
+        <td>
+            @Html.ActionLink("Cập nhật", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Xem chi tiết", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

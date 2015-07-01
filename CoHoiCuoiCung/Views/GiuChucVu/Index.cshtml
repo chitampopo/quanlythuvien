@@ -1,0 +1,50 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.GIU_CHUC_VU>
+
+@{
+    ViewBag.Title = "Giữ chức vụ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Giữ chức vụ</h2>
+
+<p>
+    @Html.ActionLink("Thêm nhân viên giữ chức vụ", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Ngày bắt đầu
+        </th>
+        <th>
+            Ngày kết thúc
+        </th>
+        <th>
+            Chức vụ
+        </th>
+        <th>
+            Nhân viên
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAY_BAT_DAU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAY_KET_THUC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CHUC_VU.TEN_CHUC_VU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NHAN_VIEN.TEN_NHAN_VIEN)
+        </td>
+        <td>
+            @Html.ActionLink("Cập nhật", "Edit", new { maCV=item.MA_CHUC_VU, maNV=item.MA_NHAN_VIEN})
+        </td>
+    </tr>
+}
+
+</table>

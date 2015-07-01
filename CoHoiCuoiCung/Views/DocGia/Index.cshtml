@@ -1,0 +1,69 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.DOC_GIA>
+
+@{
+    ViewBag.Title = "Quản lý độc giả";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Quản lý độc giả</h2>
+
+<p>
+    @Html.ActionLink("Thêm độc giả", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Họ và tên")
+        </th>
+        <th>
+            @Html.DisplayName("SDT")
+        </th>
+        <th class="col-md-2">
+            @Html.DisplayName("Địa chỉ")
+        </th>
+        <th>
+            @Html.DisplayName("Giới tính")
+        </th>
+        <th>
+            @Html.DisplayName("Ngày tham gia")
+        </th>
+        <th>
+            @Html.DisplayName("Ngày hết hạn")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEN_DOC_GIA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT_DOC_GIA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIA_CHI_DOC_GIA)
+        </td>
+        <td>
+            @if (item.GIOI_TINH_DOC_GIA == true)
+            {
+                @Html.Raw("Nam")
+            } else{
+                @Html.Raw("Nữ")
+            }
+            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAY_THAM_GIA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAY_HET_HAN)
+        </td>
+        <td>
+            @Html.ActionLink("Cập nhật", "Edit", new { id=item.MA_DOC_GIA }) |
+            @Html.ActionLink("Xem chi tiết", "Details", new { id=item.MA_DOC_GIA })
+        </td>
+    </tr>
+}
+
+</table>

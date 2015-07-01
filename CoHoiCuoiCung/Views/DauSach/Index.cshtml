@@ -1,0 +1,50 @@
+﻿@model IEnumerable<CoHoiCuoiCung.Models.DAU_SACH>
+
+@{
+    ViewBag.Title = "Trang quản lý đầu sách";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Đầu sách</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới đầu sách", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên đầu sách
+        </th>
+        <th>
+            Ngôn ngữ
+        </th>
+        <th>
+            Nhà xuất bản
+        </th>
+        <th>
+            Loại sách
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEN_DAU_SACH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGON_NGU.TEN_NGON_NGU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NHA_XUAT_BAN.TEN_NXB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LOAI_SACH.TEN_LOAI_SACH)
+        </td>
+        <td>
+
+        </td>
+    </tr>
+}
+
+</table>
